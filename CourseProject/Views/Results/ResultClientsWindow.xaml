@@ -1,0 +1,27 @@
+﻿<Window x:Class="CourseProject.Views.Results.ResultClientsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="ResultClientsWindow" SizeToContent="WidthAndHeight"
+        WindowStartupLocation="CenterScreen">
+    <StackPanel Margin="10">
+        <TextBlock Padding="5" FontSize="12">
+            Таблица <Underline>Clients</Underline>
+        </TextBlock>
+        <DataGrid AutoGenerateColumns="False"
+                  IsReadOnly="True"
+                  Name ="DgClients">
+
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Ид." Binding="{Binding Id}"/>
+                <DataGridTextColumn Header="Фамилия" Binding="{Binding Surname}"/>
+                <DataGridTextColumn Header="Имя" Binding="{Binding Name}"/>
+                <DataGridTextColumn Header="Отчество" Binding="{Binding Patronymic}"/>
+                <DataGridTextColumn Header="Паспорт" Binding="{Binding Passport}"/>
+                <DataGridTextColumn Header="Скидка" Binding="{Binding Discount}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </StackPanel>
+</Window>
