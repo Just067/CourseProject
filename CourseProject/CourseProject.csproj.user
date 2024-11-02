@@ -19,7 +19,16 @@
     <Compile Update="Views\ChoiceWindows\SurnameChoiceWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\Results\ResultAgentsWindow.xaml.cs">
+    <Compile Update="Views\Results\AddBrandWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Results\AddColorWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Results\VisitWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Results\EmployeesWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Views\Results\ResultClientsWindow.xaml.cs">
@@ -57,7 +66,16 @@
     <Page Update="Views\ChoiceWindows\SumChoiceWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\Results\ResultAgentsWindow.xaml">
+    <Page Update="Views\Results\AddBrandWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Results\AddColorWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Results\VisitWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Results\EmployeesWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\Results\ResultClientsWindow.xaml">

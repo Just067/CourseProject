@@ -2,27 +2,16 @@
 
 namespace CourseProject.Infrastructure;
 
-// Команда общего назначения, определяемой программистом
-// Традиционное имя класса команды RelayCommand
-public class RelayCommand(Action<object> execute, Predicate<object> canExecute) : ICommand
+public class RelayCommand(Action<object> execute, Func<object, bool> canExecute = null!)
+    : ICommand
 {
-    // Делегат - полезное действие команды
-    readonly Action<object> _execute = execute ?? throw new ArgumentNullException("execute");
-
-    // Делегат - проверка возможности выполнения команды
-
-    public RelayCommand(Action<object> execute)
-        : this(execute, null!) {
-    }
-
-    public bool CanExecute(object? parameter) => canExecute?.Invoke(parameter) ?? true;
-
-
-    public event EventHandler? CanExecuteChanged {
+    public event EventHandler? CanExecuteChanged
+    {
         add => CommandManager.RequerySuggested += value;
         remove => CommandManager.RequerySuggested -= value;
-    }
+    } // CanExecuteChanged
 
-    // public void Execute(object parameter) => _execute.Invoke(parameter);
-    public void Execute(object? parameter) => _execute(parameter);
+    public bool CanExecute(object? parameter) => canExecute == null! || canExecute(parameter!);
+
+    public void Execute(object? parameter) => execute(parameter!);
 } // class RelayCommand

@@ -10,6 +10,13 @@
 
   <ItemGroup>
     <None Remove="Assets\database_black.png" />
+    <None Remove="Assets\icons8-car-32.png" />
+    <None Remove="Assets\icons8-color-32.png" />
+    <None Remove="Assets\icons8-document-32.png" />
+    <None Remove="Assets\icons8-edit-32.png" />
+    <None Remove="Assets\icons8-employees-32.png" />
+    <None Remove="Assets\icons8-exit-32.png" />
+    <None Remove="Assets\icons8-добавить-32.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -21,6 +28,13 @@
     <Resource Include="Assets\database_black.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="Assets\icons8-car-32.png" />
+    <Resource Include="Assets\icons8-color-32.png" />
+    <Resource Include="Assets\icons8-document-32.png" />
+    <Resource Include="Assets\icons8-edit-32.png" />
+    <Resource Include="Assets\icons8-employees-32.png" />
+    <Resource Include="Assets\icons8-exit-32.png" />
+    <Resource Include="Assets\icons8-добавить-32.png" />
   </ItemGroup>
 
 </Project>

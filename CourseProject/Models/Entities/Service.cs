@@ -1,5 +1,9 @@
-﻿namespace CourseProject.Models.Entities;
+﻿using CourseProject.Models.Entities.Configurations;
+using Microsoft.EntityFrameworkCore;
 
+namespace CourseProject.Models.Entities;
+
+[EntityTypeConfiguration(typeof(ServiceConfiguration))]
 public class Service
 {
     public int Id { get; set; }

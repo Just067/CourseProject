@@ -9,13 +9,13 @@ namespace CourseProject.Views;
 /// </summary>
 public partial class MainWindow : Window
 {
-    private ServiceStationController _ServiceStationController = new();
+    private ServiceStationController _serviceStationController = new();
 
     public MainWindow()
     {
         InitializeComponent();
 
-        DataContext = new MainWindowViewModel(this, _ServiceStationController);
+        DataContext = new MainWindowViewModel(this, _serviceStationController);
     }
 
 }

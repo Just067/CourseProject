@@ -23,13 +23,18 @@ public class PersonConfiguration : IEntityTypeConfiguration<Person>
             .IsRequired();
 
         // начальная инициализация таблицы
-        //List<Person> people = [
-        //    new() { Id = 1, Surname = "Романова", Name = "Александра", Patronymic = "Павловна", Passport = "13 12 445432" },
-        //    new() { Id = 2, Surname = "Иванов", Name = "Павел", Patronymic = "Викторович", Passport = "12 43 435754" },
-        //    new() { Id = 3, Surname = "Филимонов", Name = "Александр", Patronymic = "Павлович", Passport = "14 54 643563" },
-        //    new() { Id = 4, Surname = "Павловская", Name = "Елена", Patronymic = "Петровна", Passport = "15 64 741353" },
-        //    new() { Id = 5, Surname = "Петров", Name = "Павел", Patronymic = "Петрович", Passport = "18 43 846364" },
-        //];
-        //builder.HasData(people);
+        List<Person> people = [
+            new() { Id = 1, Surname = "Романова", Name = "Александра", Patronymic = "Павловна"},
+            new() { Id = 2, Surname = "Иванов", Name = "Павел", Patronymic = "Викторович"},
+            new() { Id = 3, Surname = "Филимонов", Name = "Александр", Patronymic = "Павлович"},
+            new() { Id = 4, Surname = "Павловская", Name = "Елена", Patronymic = "Петровна"},
+            new() { Id = 5, Surname = "Петров", Name = "Павел", Patronymic = "Петрович"},
+            new() { Id = 6, Surname = "Петров", Name = "Павел", Patronymic = "Петрович"},
+            new() { Id = 7, Surname = "Петров", Name = "Павел", Patronymic = "Петрович"},
+            new() { Id = 8, Surname = "Павлов", Name = "Павел", Patronymic = "Петрович"},
+            new() { Id = 9, Surname = "Петров", Name = "Павел", Patronymic = "Петрович"},
+            new() { Id = 10, Surname = "Петров", Name = "Павел", Patronymic = "Петрович"},
+        ];
+        builder.HasData(people);
     } // Configure
 }

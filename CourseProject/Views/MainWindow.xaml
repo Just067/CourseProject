@@ -5,14 +5,26 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
         Title="MainWindow"
-        MaxWidth="1500"
+        FontSize="16"
         WindowStartupLocation="CenterScreen"
-        Icon="/Assets/database_black.png"
-        SizeToContent="WidthAndHeight">
+        Icon="/Assets/database_black.png">
 
-    <StackPanel Orientation="Vertical">
+    <Grid>
+        <Grid.RowDefinitions>
+            <!-- Меню -->
+            <RowDefinition Height="30"/>
 
-        <Menu FontFamily="Verdana"
+            <!-- Панель инструментов -->
+            <RowDefinition Height="60"/>
+
+            <!-- Рабочая область -->
+            <RowDefinition Height="*"/>
+
+            <!-- Строка состояния -->
+            <RowDefinition Height="20"/>
+        </Grid.RowDefinitions>
+
+        <Menu Grid.Row ="0" FontFamily="Verdana"
               FontSize="16">
             <MenuItem Header="_Файл">
                 <MenuItem Header="Вы_ход"
@@ -54,188 +66,201 @@
             </MenuItem>
         </Menu>
 
-        <ToolBarTray>
-            <ToolBar Height="32"
+        <ToolBarTray Grid.Row ="1" Background="White">
+            <ToolBar 
                      FontFamily="Verdana"
-                     FontSize="16">
+                     FontSize="16" Background="Transparent">
 
-                <Button Margin="5 0"
-                        Command="{Binding Query01Command}"
-                        ToolTip="Выполнение запроса 1 по заданию">
-                    Запрос 1
+                <Button Margin="5, 0"
+                        Padding="5"
+                        Command="{Binding EmployeesCommand}">
+                    <Image Source="/Assets/icons8-employees-32.png"></Image>
                 </Button>
 
-                <Button Margin="5 0"
-                        Command="{Binding Query02Command}"
-                        ToolTip="Выполнение запроса 2 по заданию">
-                    Запрос 2
-                </Button>
+                <Separator/>
 
                 <Button Margin="5 0"
-                        Command="{Binding Query03Command}"
-                        ToolTip="Выполнение запроса 3 по заданию">
-                    Запрос 3
+                        Padding="5"
+                        Command="{Binding Query02Command}">
+                    <Image Source="/Assets/icons8-добавить-32.png"></Image>
                 </Button>
+
+                <Separator/>
 
                 <Button Margin="5 0"
-                        Command="{Binding Query04Command}"
-                        ToolTip="Выполнение запроса 4 по заданию">
-                    Запрос 4
+                        Padding="5"
+                        Command="{Binding Query02Command}">
+                    <Image Source="/Assets/icons8-edit-32.png"></Image>
                 </Button>
+
+                <Separator/>
 
                 <Button Margin="5 0"
-                        Command="{Binding Query05Command}"
-                        ToolTip="Выполнение запроса 5 по заданию">
-                    Запрос 5
+                        Padding="5"
+                        Command="{Binding AddColor}">
+                    <Image Source="/Assets/icons8-color-32.png"></Image>
                 </Button>
+
+                <Separator/>
 
                 <Button Margin="5 0"
-                        Command="{Binding Query06Command}"
-                        ToolTip="Выполнение запроса 6 по заданию">
-                    Запрос 6
+                        Padding="5"
+                        Command="{Binding AddBrand}">
+                    <Image Source="/Assets/icons8-car-32.png"></Image>
                 </Button>
 
-                <Button Margin="5 0"
-                        Command="{Binding Query07Command}"
-                        ToolTip="Выполнение запроса 7 по заданию">
-                    Запрос 7
-                </Button>
-
-                <Button Margin="5 0"
-                        Command="{Binding Query08Command}"
-                        ToolTip="Выполнение запроса 8 по заданию">
-                    Запрос 8
-                </Button>
-
-                <Button Margin="5 0"
-                        Command="{Binding Query09Command}"
-                        ToolTip="Выполнение запроса 9 по заданию">
-                    Запрос 9
-                </Button>
-
-                <Button Margin="5 0"
-                        Command="{Binding Query10Command}"
-                        ToolTip="Выполнение запроса 10 по заданию">
-                    Запрос 10
-                </Button>
-
-                <Separator Margin="10 0"/>
+                <Separator/>
 
                 <Button Margin="5 0"
                         Command="{Binding ExitCommand}"
+                        ToolTip="Послать месячный отсчет">
+                    <Image Source="/Assets/icons8-document-32.png"></Image>
+                </Button>
+
+                <Button Margin="930 0 0 0"
+                        Command="{Binding ExitCommand}"
                         ToolTip="Завершение приложения">
-                    Выход
+                    <Image Source="/Assets/icons8-exit-32.png"></Image>
                 </Button>
 
             </ToolBar>
         </ToolBarTray>
 
-        <!-- Поле вывода результатов запроса -->
-        <GroupBox
-                  Header="Результаты"
-                  Margin="5"
-                  VerticalAlignment="Stretch"
-                  BorderThickness="1" BorderBrush="Black">
-            <StackPanel Orientation="Vertical">
-                <TextBlock Name="TblMessage" 
-                       Padding="10"
-                       FontFamily="Consolas"
-                       FontSize="14">
-                </TextBlock>
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="300*"/>
+                <ColumnDefinition Width="100*"/>
+            </Grid.ColumnDefinitions>
+            <!-- Поле вывода результатов запроса -->
+            <GroupBox Grid.Column="0"
+                      Header="Результаты"
+                      Margin="5"
+                      VerticalAlignment="Stretch"
+                      BorderThickness="1" BorderBrush="Black">
+                <StackPanel Orientation="Vertical">
 
-                <WrapPanel Orientation="Horizontal">
+                    <WrapPanel Orientation="Horizontal">
 
-                    <!-- Список вывода для таблиц базы данных -->
+                        <StackPanel Margin="10">
+                            <StackPanel Orientation="Horizontal">
+                                <ComboBox Margin="5" Width="200" Name="CbxClients">
+                                    <ComboBoxItem Content="Фамилия" />
+                                    <ComboBoxItem Content="Имя" />
+                                    <ComboBoxItem Content="Отчество" />
+                                </ComboBox>
+                                <TextBox Margin="5" Width="200" Name="TxbClient">
+                                </TextBox>
+                            </StackPanel>
+                            <TextBlock Padding="5" FontSize="14">
+                                Клиенты
+                            </TextBlock>
+                            <DataGrid AutoGenerateColumns="False"
+                           IsReadOnly="True"
+                           Name ="DgClients">
 
-                    <StackPanel Margin="10">
-                        <TextBlock Padding="5" FontSize="12">
-                            Таблица <Underline>People</Underline>
-                        </TextBlock>
-                        <DataGrid AutoGenerateColumns="False"
-                                  IsReadOnly="True"
-                                  Name ="DgPeople">
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Header="№ п/п" Binding="{Binding Id}"/>
+                                    <DataGridTextColumn Header="Фамилия" Binding="{Binding Person.Surname}"/>
+                                    <DataGridTextColumn Header="Имя" Binding="{Binding Person.Name}"/>
+                                    <DataGridTextColumn Header="Отчество" Binding="{Binding Person.Patronymic}"/>
+                                </DataGrid.Columns>
+                            </DataGrid>
+                        </StackPanel>
 
-                            <DataGrid.Columns>
-                                <DataGridTextColumn Header="Ид." Binding="{Binding Id}"/>
-                                <DataGridTextColumn Header="Фамилия" Binding="{Binding Surname}"/>
-                                <DataGridTextColumn Header="Имя" Binding="{Binding Name}"/>
-                                <DataGridTextColumn Header="Отчество" Binding="{Binding Patronymic}"/>
-                                <DataGridTextColumn Header="Паспорт" Binding="{Binding Passport}"/>
-                            </DataGrid.Columns>
-                        </DataGrid>
-                    </StackPanel>
+                        <StackPanel Margin="10">
+                            <TextBlock Padding="5" FontSize="14">
+                                Автомобили
+                            </TextBlock>
+                            <DataGrid AutoGenerateColumns="False"
+                           IsReadOnly="True"
+                           Name ="DgCars">
 
-                    <StackPanel Margin="10">
-                        <TextBlock Padding="5" FontSize="12">
-                            Таблица <Underline>Clients</Underline>
-                        </TextBlock>
-                        <DataGrid AutoGenerateColumns="False"
-                                  IsReadOnly="True"
-                                  Name ="DgClients">
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Header="№ п/п" Binding="{Binding Id}"/>
+                                    <DataGridTextColumn Header="Фамилия владельца" Binding="{Binding Owner.Surname}"/>
+                                    <DataGridTextColumn Header="Имя владельца" Binding="{Binding Owner.Name}"/>
+                                    <DataGridTextColumn Header="Отчество владельца" Binding="{Binding Owner.Patronymic}"/>
+                                    <DataGridTextColumn Header="Марка" Binding="{Binding Brand.Name}"/>
+                                    <DataGridTextColumn Header="Цвет" Binding="{Binding Color.Name}"/>
+                                    <DataGridTextColumn Header="Государственный номер" Binding="{Binding StateNumber}"/>
+                                    <DataGridTextColumn Header="Год выпуска" Binding="{Binding ReleaseYear}"/>
+                                </DataGrid.Columns>
+                            </DataGrid>
+                        </StackPanel>
 
-                            <DataGrid.Columns>
-                                <DataGridTextColumn Header="Ид." Binding="{Binding Id}"/>
-                                <DataGridTextColumn Header="Фамилия" Binding="{Binding Surname}"/>
-                                <DataGridTextColumn Header="Имя" Binding="{Binding Name}"/>
-                                <DataGridTextColumn Header="Отчество" Binding="{Binding Patronymic}"/>
-                                <DataGridTextColumn Header="Паспорт" Binding="{Binding Passport}"/>
-                                <DataGridTextColumn Header="Скидка" Binding="{Binding Discount}"/>
-                            </DataGrid.Columns>
-                        </DataGrid>
-                    </StackPanel>
+                        <StackPanel Margin="10">
+                            <TextBlock Padding="5" FontSize="14">
+                                Оказанные услуги
+                            </TextBlock>
+                            <DataGrid AutoGenerateColumns="False"
+                           IsReadOnly="True"
+                           Name ="DgVisits">
 
-                    <StackPanel Margin="10">
-                        <TextBlock Padding="5" FontSize="12">
-                            Таблица <Underline>InsuranceAgents</Underline>
-                        </TextBlock>
-                        <DataGrid AutoGenerateColumns="False"
-                                  IsReadOnly="True"
-                                  Name ="DgAgents">
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Header="№ п/п" Binding="{Binding Id}"/>
 
-                            <DataGrid.Columns>
-                                <DataGridTextColumn Header="Ид." Binding="{Binding Id}"/>
-                                <DataGridTextColumn Header="Фамилия" Binding="{Binding Surname}"/>
-                                <DataGridTextColumn Header="Имя" Binding="{Binding Name}"/>
-                                <DataGridTextColumn Header="Отчество" Binding="{Binding Patronymic}"/>
-                                <DataGridTextColumn Header="Паспорт" Binding="{Binding Passport}"/>
-                                <DataGridTextColumn Header="Процент вознаграждения" Binding="{Binding Commission}"/>
-                            </DataGrid.Columns>
-                        </DataGrid>
-                    </StackPanel>
+                                    <DataGridTextColumn Header="Неисправность" Binding="{Binding Defect.Name}"/>
 
-                    <StackPanel Margin="10">
-                        <TextBlock Padding="5" FontSize="12">
-                            Таблица <Underline>Visits</Underline>
-                        </TextBlock>
-                        <DataGrid AutoGenerateColumns="False"
-                                  IsReadOnly="True"
-                                  Name ="DgVisits">
+                                    <DataGridTextColumn Header="Услуга" Binding="{Binding Service.Name}"/>
+                                    <DataGridTextColumn Header="Стоимость" Binding="{Binding Service.Cost}"/>
 
-                            <DataGrid.Columns>
-                                <DataGridTextColumn Header="Ид." Binding="{Binding Id}"/>
+                                    <DataGridTextColumn Header="Дата обращения" Binding="{Binding DateOfApplication, StringFormat={}{0:dd-MM-yyyy}}"/>
+                                    <DataGridTextColumn Header="Дата выдачи" Binding="{Binding DateOfIssue, StringFormat={}{0:dd-MM-yyyy}}"/>
+                                    <DataGridTemplateColumn Header="Оплачен">
+                                        <DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <CheckBox IsChecked="{Binding IsPaid}" 
+                                                          VerticalAlignment="Center"
+                                                          HorizontalAlignment="Center"/>
+                                            </DataTemplate>
+                                        </DataGridTemplateColumn.CellTemplate>
 
-                                <DataGridTextColumn Header="Фамилия клиента" Binding="{Binding Client.Surname}"/>
-                                <DataGridTextColumn Header="Имя клиента" Binding="{Binding Client.Name}"/>
-                                <DataGridTextColumn Header="Отчество клиента" Binding="{Binding Client.Patronymic}"/>
-                                <DataGridTextColumn Header="Паспорт клиента" Binding="{Binding Client.Passport}"/>
-                                <DataGridTextColumn Header="Скидка клиента" Binding="{Binding Client.Discount}"/>
+                                    </DataGridTemplateColumn>
 
-                                <DataGridTextColumn Header="Фамилия агента" Binding="{Binding Employee.Surname}"/>
-                                <DataGridTextColumn Header="Имя агента" Binding="{Binding Employee.Name}"/>
-                                <DataGridTextColumn Header="Отчество агента" Binding="{Binding Employee.Patronymic}"/>
-                                <DataGridTextColumn Header="Паспорт агента" Binding="{Binding Employee.Passport}"/>
-                                <DataGridTextColumn Header="Процент вознаграждения" Binding="{Binding Employee.Commission}"/>
+                                </DataGrid.Columns>
+                            </DataGrid>
+                        </StackPanel>
+                    </WrapPanel>
+                </StackPanel>
 
-                                <DataGridTextColumn Header="Вид страхования" Binding="{Binding InsuranceType}"/>
-                                <DataGridTextColumn Header="Сумма страхования" Binding="{Binding InsurancePrice}"/>
-                                <DataGridTextColumn Header="Тариф" Binding="{Binding Tariff}"/>
+            </GroupBox>
 
-                                <DataGridTextColumn Header="Дата заключения договора" Binding="{Binding ContractDate, StringFormat={}{0:dd-MM-yyyy}}"/>
-                            </DataGrid.Columns>
-                        </DataGrid>
-                    </StackPanel>
-                </WrapPanel>
-            </StackPanel>
-        </GroupBox>
-        </StackPanel>
+            <GroupBox Grid.Column="1"                    
+                      Header="Меню"
+                      Margin="5"
+                      VerticalAlignment="Stretch"
+                      BorderThickness="1" BorderBrush="Black">
+                <StackPanel  Orientation="Vertical" VerticalAlignment ="Center">
+                    <Button Name="BtnAdd" Margin="10"  FontWeight="Bold" Background="LightSkyBlue"
+                            Command="{Binding VisitCommand}">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/Assets/icons8-добавить-32.png"/>
+                            <TextBlock Text="Добавить" Margin="5 0" VerticalAlignment="Center"/>
+                        </StackPanel>
+                    </Button>
+
+                    <Button Name="BtnEdit" Margin="10"  FontWeight="Bold" Background="Aquamarine">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/Assets/icons8-edit-32.png"/>
+                            <TextBlock Text="Редактировать клиента" Margin="5 0" VerticalAlignment="Center"/>
+                        </StackPanel>
+                    </Button>
+
+                    <Button Name="BtnReport" Margin="10"  FontWeight="Bold" Background="LightYellow">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/Assets/icons8-document-32.png"/>
+                            <TextBlock Text="Месячный отсчет" Margin="5 0" VerticalAlignment="Center"/>
+                        </StackPanel>
+                    </Button>
+
+                </StackPanel>
+            </GroupBox>
+            
+        </Grid>
+       
+
+        <StatusBar Grid.Row="3">
+            <TextBlock Name="TblStatus" />
+        </StatusBar>
+    </Grid>
 </Window>

@@ -23,6 +23,7 @@ public class CarConfiguration : IEntityTypeConfiguration<Car>
             .HasForeignKey(c => c.ColorId);
 
         builder
+            .ToTable(t => t.HasCheckConstraint("ReleaseYear", "ReleaseYear > 1900"))
             .Property(c => c.ReleaseYear)
             .IsRequired();
 
@@ -36,19 +37,13 @@ public class CarConfiguration : IEntityTypeConfiguration<Car>
 
 
         // начальная инициализация таблицы
-        //        List<Client> clients = [
-        //            new() { Id = 20, Surname = "Фадеева", Name = "Эвелина", Patronymic = "Павловна", Passport = "13 12 158736", Discount = 5},
-        //            new() { Id = 21, Surname = "Семин", Name = "Олег", Patronymic = "Викторович", Passport = "12 43 146813", Discount = 3 },
-        //            new() { Id = 22, Surname = "Павлов", Name = "Алексей", Patronymic = "Павлович", Passport = "14 54 186321", Discount = 2 },
-        //            new() { Id = 23, Surname = "Дзержинская", Name = "Евгения", Patronymic = "Петровна", Passport = "15 64 963752", Discount = 7 },
-        //            new() { Id = 24, Surname = "Титов", Name = "Егор", Patronymic = "Петрович", Passport = "11 43 841317", Discount = 10 },
-        //            new() { Id = 25, Surname = "Васнецова", Name = "Екатерина", Patronymic = "Павловна", Passport = "18 44 361881", Discount = 12 },
-        //            new() { Id = 26, Surname = "Носова", Name = "Ирина", Patronymic = "Викторовна", Passport = "14 53 631145", Discount = 5 },
-        //            new() { Id = 27, Surname = "Сидоров", Name = "Владимир", Patronymic = "Александрович", Passport = "15 63 961257", Discount = 4 },
-        //            new() { Id = 28, Surname = "Андропов", Name = "Виктор", Patronymic = "Степанович", Passport = "13 17 943167", Discount = 8 },
-        //            new() { Id = 29, Surname =  "Васильев", Name = "Дмитрий", Patronymic = "Павлович", Passport = "16 46 881372", Discount = 6 },
-        //
-        //        ];
-        //        builder.HasData(clients);
+        List<Car> cars = [
+            new() { Id = 1, OwnerId = 1, BrandId = 1, ColorId = 1, ReleaseYear = 2014, StateNumber = "A-180-DF"},
+            new() { Id = 2, OwnerId = 2, BrandId = 2, ColorId = 2, ReleaseYear = 2014, StateNumber = "B-180-DF"},
+            new() { Id = 3, OwnerId = 3, BrandId = 3, ColorId = 3, ReleaseYear = 2014, StateNumber = "C-180-DF"},
+            new() { Id = 4, OwnerId = 4, BrandId = 4, ColorId = 4, ReleaseYear = 2014, StateNumber = "D-180-DF"},
+            new() { Id = 5, OwnerId = 5, BrandId = 5, ColorId = 5, ReleaseYear = 2014, StateNumber = "E-180-DF"},
+        ];
+        builder.HasData(cars);
     } // Configure
 }

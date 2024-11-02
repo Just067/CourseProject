@@ -30,4 +30,6 @@ public class Visit
 
     public DateTime DateOfIssue { get; set; }  
 
+    public bool IsPaid { get; set; }
+
 }

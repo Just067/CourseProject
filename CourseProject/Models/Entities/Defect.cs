@@ -1,5 +1,9 @@
-﻿namespace CourseProject.Models.Entities;
+﻿using CourseProject.Models.Entities.Configurations;
+using Microsoft.EntityFrameworkCore;
 
+namespace CourseProject.Models.Entities;
+
+[EntityTypeConfiguration(typeof(DefectConfiguration))]
 public class Defect
 {
     public int Id { get; set; }

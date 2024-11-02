@@ -1,0 +1,169 @@
+﻿<Window x:Class="CourseProject.Views.Results.VisitWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CourseProject.Views.Results"
+        mc:Ignorable="d"
+        Title="VisitWindow"
+        SizeToContent="WidthAndHeight"
+        WindowStartupLocation="CenterScreen"
+        MinWidth="600">
+    <StackPanel Orientation="Vertical" Margin="10">
+        <!-- заголовок формы ввода -->
+        <TextBlock 
+       HorizontalAlignment="Center"
+               FontSize="15"
+               FontWeight="Bold">
+        Введите сведения о заказе
+        </TextBlock>
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <GroupBox 
+                Grid.Row="0"
+                Grid.Column="0"
+                Margin="5" 
+              Padding="5"
+              BorderBrush="Black"
+              Header="Сведения о клиенте">
+
+            <StackPanel
+                Orientation="Vertical"
+                Width="200"
+                Margin="10 5 15 15">
+
+                <Label>Фамилия клиента:</Label>
+                <TextBox Name="TxbSurnameClient"></TextBox>
+
+                <Label>Имя клиента:</Label>
+                <TextBox Name="TxbNameClient"></TextBox>
+
+                <Label>Отчество клиента:</Label>
+                <TextBox Name="TxbPatronymicClient"></TextBox>
+
+
+                <Label>Паспорт:</Label>
+                <TextBox Name ="TxbPassport"/>
+
+                <Label>Прописка:</Label>
+                <TextBox Name ="TxbRegistration"/>
+
+                <Label>Дата рождения:</Label>
+                <DatePicker Name="DtpBirthDate"/>
+
+                </StackPanel>
+            </GroupBox>
+
+            <GroupBox 
+                Grid.Row="0"
+                Grid.Column="1"
+                Margin="5" 
+                Padding="5"
+                BorderBrush="Black"
+                Header="Сведения о машине">
+
+                <StackPanel
+                    Orientation="Vertical"
+                    Width="200"
+                    Margin="10 5 15 15">
+
+                    <Label>Фамилия владельца:</Label>
+                    <TextBox Name="TxbSurnameOwner"></TextBox>
+
+                    <Label>Имя владельца:</Label>
+                    <TextBox Name="TxbNameOwner"></TextBox>
+
+                    <Label>Отчество владельца:</Label>
+                    <TextBox Name="TxbPatronymicOwner"></TextBox>
+
+                    <Label>Марка:</Label>
+                    <ComboBox Name ="CxbBrand"/>
+
+                    <Label>Цвет:</Label>
+                    <ComboBox Name ="CxbColor"/>
+
+                    <Label>Год выпуска:</Label>
+                    <TextBox Name="TxbReleaseYear"/>
+
+                    <Label>Государственный номер:</Label>
+                    <TextBox Name="TxbStateNumber"/>
+
+                </StackPanel>
+            </GroupBox>
+
+            <GroupBox 
+                Grid.Row="1"
+                Grid.Column="0"
+                Margin="5" 
+                Padding="5"
+                BorderBrush="Black"
+                Header="Выберите работника">
+
+                <StackPanel
+                    Orientation="Vertical"
+                    Width="250"
+                    Margin="10 5 15 15">
+
+                    <DataGrid AutoGenerateColumns="False"
+                              IsReadOnly="True"
+                              Name ="DgEmployees">
+
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="№ п/п" Binding="{Binding Id}"/>
+                            <DataGridTextColumn Header="Фамилия" Binding="{Binding Person.Surname}"/>
+                            <DataGridTextColumn Header="Имя" Binding="{Binding Person.Name}"/>
+                            <DataGridTextColumn Header="Отчество" Binding="{Binding Person.Patronymic}"/>
+                            <DataGridTextColumn Header="Специальность" Binding="{Binding Specialization.Name}"/>
+                            <DataGridTextColumn Header="Разряд" Binding="{Binding Category}"/>
+                            <DataGridTextColumn Header="Стаж" Binding="{Binding Experience}"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+
+                </StackPanel>
+            </GroupBox>
+
+            <GroupBox 
+                Grid.Row="1"
+                Grid.Column="1"
+                Margin="5" 
+                Padding="5"
+                BorderBrush="Black"
+                Header="Дополнительные сведения об обращении">
+
+                <StackPanel
+                    Orientation="Vertical"
+                    Width="200"
+                    Margin="10 5 15 15">
+
+                    <Label>Неисправность:</Label>
+                    <TextBox Name="TxbDefect"></TextBox>
+
+                    <Label>Услуга:</Label>
+                    <ComboBox Name="CxbService"></ComboBox>
+
+                    <Label>Дата обращения:</Label>
+                    <DatePicker Name="DtpApplication"/>
+
+                    <Label>Дата выдачи авто:</Label>
+                    <DatePicker Name="DtpIssue"/>
+
+                </StackPanel>
+            </GroupBox>
+
+            <!--endregion -->
+        </Grid>
+        <!--<StackPanel Orientation="Horizontal" HorizontalAlignment ="Center">
+            <Button Background="LightGreen"  Content="Добавить" Name="BtnAdd" Margin="10" Height="50" Width ="200" Click="BtnAdd_Click"/>
+            <Button Background="LightCoral" Content="Закрыть" Name="BtnClose" Margin="10" Height="50" Width ="200" Click="BtnCancel_Click"/>
+        </StackPanel>-->
+    </StackPanel>
+</Window>

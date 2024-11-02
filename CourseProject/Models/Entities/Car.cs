@@ -1,5 +1,9 @@
-﻿namespace CourseProject.Models.Entities;
+﻿using CourseProject.Models.Entities.Configurations;
+using Microsoft.EntityFrameworkCore;
 
+namespace CourseProject.Models.Entities;
+
+[EntityTypeConfiguration(typeof(CarConfiguration))]
 public class Car
 {
     public int Id { get; set; }
@@ -12,7 +16,7 @@ public class Car
     public int ColorId { get; set; }
     public virtual Color Color { get; set; }
 
-    public DateTime ReleaseYear { get; set; }
+    public int ReleaseYear { get; set; }
     public string StateNumber { get; set; }
 
     public virtual List<Visit> Visits { get; set; } = [];
