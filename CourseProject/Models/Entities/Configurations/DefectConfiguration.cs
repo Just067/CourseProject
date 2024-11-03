@@ -16,13 +16,11 @@ public class DefectConfiguration : IEntityTypeConfiguration<Defect>
         // начальная инициализация таблицы
         List<Defect> defects = [
             new() { Id = 1, Name = "Кузов отвалился"},
-            new() { Id = 2, Name = "Кузов отвалился"},
-            new() { Id = 3, Name = "Кузов отвалился"},
-            new() { Id = 4, Name = "Кузов отвалился"},
-            new() { Id = 5, Name = "Кузов отвалился"},
-            new() { Id = 6, Name = "Кузов отвалился"},
-            new() { Id = 7, Name = "Кузов отвалился"},
-            new() { Id = 8, Name = "Кузов отвалился"},
+            new() { Id = 2, Name = "Разбилась фара"},
+            new() { Id = 3, Name = "Испортился двигатель"},
+            new() { Id = 4, Name = "Не работает поворотник"},
+            new() { Id = 5, Name = "Лопнуло колесо"},
+            new() { Id = 6, Name = "Царапина на бампере"}
         ];
         builder.HasData(defects);
     } // Configure

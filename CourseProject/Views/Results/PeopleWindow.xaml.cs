@@ -1,22 +1,22 @@
 ﻿using System.Windows;
+using CourseProject.Models.Entities;
 
 namespace CourseProject.Views.Results;
 
 /// <summary>
-/// Логика взаимодействия для AddColorWindow.xaml
+/// Логика взаимодействия для PeopleWindow.xaml
 /// </summary>
-public partial class AddColorWindow : Window
+public partial class PeopleWindow : Window
 {
-    public AddColorWindow()
+    public PeopleWindow(List<Person> people)
     {
         InitializeComponent();
 
-        TbxColor.Focus();
+        DgPeople.ItemsSource = people;
+        DgPeople.SelectedIndex = 0;
+    } // PeopleWindow
 
-    } // AddColorWindow
-
-    // вернуть выбранный цвет
-    public string Color => TbxColor.Text;
+    public Person Person => (Person)DgPeople.SelectedItems[0]!;
 
     private void BtnSelect_Click(object sender, EventArgs e)
     {

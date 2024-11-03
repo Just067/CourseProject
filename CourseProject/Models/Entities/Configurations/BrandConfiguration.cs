@@ -16,13 +16,10 @@ public class BrandConfiguration : IEntityTypeConfiguration<Brand>
         // начальная инициализация таблицы
         List<Brand> brands = [
             new() { Id = 1, Name = "Dodge"},
-            new() { Id = 2, Name = "Dodge"},
-            new() { Id = 3, Name = "Dodge"},
-            new() { Id = 4, Name = "Dodge"},
-            new() { Id = 5, Name = "Dodge"},
-            new() { Id = 6, Name = "Dodge"},
-            new() { Id = 7, Name = "Dodge"},
-            new() { Id = 8, Name = "Dodge"},
+            new() { Id = 2, Name = "BMW"},
+            new() { Id = 3, Name = "Toyota"},
+            new() { Id = 4, Name = "Haval"},
+            new() { Id = 5, Name = "Kia"}
         ];
         builder.HasData(brands);
     } // Configure

@@ -6,14 +6,12 @@ namespace CourseProject.ViewModels;
 
 public partial class MainWindowViewModel
 {
+    // добавление нового цвета
     private void AddColorExec(object o)
     {
-        // Получить список всех названий цветов из базы данных
         var colors = _controller.GetAllColors()
-            .Select(item => item.Name.ToLower())
-            .Distinct();
+            .Select(item => item.Name);
 
-        // Открыть диалог для ввода нового цвета
         AddColorWindow dialog = new();
 
         if (dialog.ShowDialog() != true)
@@ -21,20 +19,32 @@ public partial class MainWindowViewModel
             return;
         }
 
-        string color = dialog.Color;
+        string color = dialog.Color.ToLower();
 
-        // Проверить наличие цвета и добавить, если его нет
         if (!colors.Contains(color))
         {
             _controller.AddColor(new Color { Name = color });
-            MessageBox.Show($"Цвет '{color}' успешно добавлен.");
+
+            colors = _controller.GetAllColors()
+                .Select(item => item.Name);
+
+            var colorNames = string.Join(", ", colors.Select(c => c));
+
+            MessageBox.Show($"Цвет '{colorNames}' успешно добавлен.");
+
         }
         else
         {
-            MessageBox.Show($"Цвет '{color}' уже существует.");
+            colors = _controller.GetAllColors()
+                .Select(item => item.Name);
+
+            var colorNames = string.Join(", ", colors.Select(c => c));
+
+            MessageBox.Show($"Цвет '{colorNames}' уже существует.");
         }
     }
 
+    // добавление новой марки автомобиля
     private void AddBrandExec(object o)
     {
         // Получить список всех названий марок из базы данных
@@ -53,14 +63,26 @@ public partial class MainWindowViewModel
         string brand = dialog.Brand;
 
         // Проверить наличие марки и добавить, если его нет
-        if (!brands.Contains(brand))
+        if (!brands.Contains(brand.ToLower()))
         {
-            _controller.AddColor(new Color { Name = brand });
-            MessageBox.Show($"Марка '{brand}' успешно добавлен.");
+            _controller.AddBrand(new Brand { Name = brand });
+            MessageBox.Show($"Марка '{brand}' успешно добавлена.");
         }
         else
         {
             MessageBox.Show($"Марка '{brand}' уже существует.");
         }
+    }
+
+    private void AddCarExec(object o)
+    {
+        AddCarWindow dialog = new();
+
+        if (dialog.ShowDialog() != true)
+        {
+            return;
+        }
+
+        FillDataGrids();
     }
 }

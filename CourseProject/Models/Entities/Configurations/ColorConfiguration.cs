@@ -15,14 +15,12 @@ public class ColorConfiguration : IEntityTypeConfiguration<Color>
 
         // начальная инициализация таблицы
         List<Color> colors = [
-            new() { Id = 1, Name = "Красный"},
-            new() { Id = 2, Name = "Синий"},
-            new() { Id = 3, Name = "Синий"},
-            new() { Id = 4, Name = "Синий"},
-            new() { Id = 5, Name = "Синий"},
-            new() { Id = 6, Name = "Синий"},
-            new() { Id = 7, Name = "Синий"},
-            new() { Id = 8, Name = "Синий"},
+            new() { Id = 1, Name = "красный"},
+            new() { Id = 2, Name = "синий"},
+            new() { Id = 3, Name = "голубой"},
+            new() { Id = 4, Name = "зеленый"},
+            new() { Id = 5, Name = "черный"},
+            new() { Id = 6, Name = "фиолетовый"}
         ];
         builder.HasData(colors);
     } // Configure

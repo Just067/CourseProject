@@ -11,8 +11,8 @@ public class Person
     public string Name { get; set; }
     public string Patronymic { get; set; }
 
-    // Вычисляемое свойство: фамилия и инициалы
-    public string FullName => $"{Surname} {Name[0]}.{Patronymic[0]}.";
+    // Вычисляемое свойство: полное имя
+    public string FullName => $"{Surname} {Name} {Patronymic}";
 
     public virtual Client Client { get; set; }
 

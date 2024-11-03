@@ -11,6 +11,8 @@ public partial class AddBrandWindow : Window
     {
         InitializeComponent();
 
+        TbxBrand.Focus();
+
     } // AddBrandWindow
 
     // вернуть выбранную марку

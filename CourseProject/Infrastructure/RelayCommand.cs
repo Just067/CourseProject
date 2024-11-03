@@ -11,7 +11,7 @@ public class RelayCommand(Action<object> execute, Func<object, bool> canExecute 
         remove => CommandManager.RequerySuggested -= value;
     } // CanExecuteChanged
 
-    public bool CanExecute(object? parameter) => canExecute == null! || canExecute(parameter!);
+    public bool CanExecute(object? parameter) =>canExecute == null! || canExecute(parameter!);
 
     public void Execute(object? parameter) => execute(parameter!);
 } // class RelayCommand

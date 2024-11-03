@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CourseProject.Views.Results"
         mc:Ignorable="d"
-        Title="AddColorWindow" Height="450" Width="800">
+        Title="AddColorWindow" Height="450" Width="800"
+        WindowStartupLocation="CenterScreen">
     <StackPanel VerticalAlignment="Center"
                 HorizontalAlignment="Center">
         <Label FontSize="20" FontWeight="Bold">Добавить цвет:</Label>

@@ -24,44 +24,10 @@
             <RowDefinition Height="20"/>
         </Grid.RowDefinitions>
 
-        <Menu Grid.Row ="0" FontFamily="Verdana"
-              FontSize="16">
+        <Menu Grid.Row ="0" FontFamily="Verdana">
             <MenuItem Header="_Файл">
                 <MenuItem Header="Вы_ход"
                           Command="{Binding ExitCommand}">
-                </MenuItem>
-            </MenuItem>
-
-            <MenuItem Header="_Запросы">
-                <MenuItem Header="Запрос _1"
-                          Command="{Binding Query01Command}">
-                </MenuItem>
-                <MenuItem Header="Запрос _2"
-                          Command="{Binding Query02Command}">
-                </MenuItem>
-                <MenuItem Header="Запрос _3"
-                          Command="{Binding Query03Command}">
-                </MenuItem>
-                <MenuItem Header="Запрос _4"
-                          Command="{Binding Query04Command}">
-                </MenuItem>
-                <MenuItem Header="Запрос _5"
-                          Command="{Binding Query05Command}">
-                </MenuItem>
-                <MenuItem Header="Запрос _6"
-                          Command="{Binding Query06Command}">
-                </MenuItem>
-                <MenuItem Header="Запрос _7"
-                          Command="{Binding Query07Command}">
-                </MenuItem>
-                <MenuItem Header="Запрос _8"
-                          Command="{Binding Query08Command}">
-                </MenuItem>
-                <MenuItem Header="Запрос _9"
-                          Command="{Binding Query09Command}">
-                </MenuItem>
-                <MenuItem Header="Запрос _10"
-                          Command="{Binding Query10Command}">
                 </MenuItem>
             </MenuItem>
         </Menu>
@@ -69,7 +35,7 @@
         <ToolBarTray Grid.Row ="1" Background="White">
             <ToolBar 
                      FontFamily="Verdana"
-                     FontSize="16" Background="Transparent">
+                     Background="Transparent">
 
                 <Button Margin="5, 0"
                         Padding="5"
@@ -80,16 +46,14 @@
                 <Separator/>
 
                 <Button Margin="5 0"
-                        Padding="5"
-                        Command="{Binding Query02Command}">
+                        Padding="5">
                     <Image Source="/Assets/icons8-добавить-32.png"></Image>
                 </Button>
 
                 <Separator/>
 
                 <Button Margin="5 0"
-                        Padding="5"
-                        Command="{Binding Query02Command}">
+                        Padding="5">
                     <Image Source="/Assets/icons8-edit-32.png"></Image>
                 </Button>
 
@@ -97,7 +61,7 @@
 
                 <Button Margin="5 0"
                         Padding="5"
-                        Command="{Binding AddColor}">
+                        Command="{Binding AddColorCommand}">
                     <Image Source="/Assets/icons8-color-32.png"></Image>
                 </Button>
 
@@ -105,14 +69,14 @@
 
                 <Button Margin="5 0"
                         Padding="5"
-                        Command="{Binding AddBrand}">
+                        Command="{Binding AddBrandCommand}">
                     <Image Source="/Assets/icons8-car-32.png"></Image>
                 </Button>
 
                 <Separator/>
 
                 <Button Margin="5 0"
-                        Command="{Binding ExitCommand}"
+                        Command="{Binding AddCarCommand}"
                         ToolTip="Послать месячный отсчет">
                     <Image Source="/Assets/icons8-document-32.png"></Image>
                 </Button>
@@ -231,11 +195,19 @@
                       VerticalAlignment="Stretch"
                       BorderThickness="1" BorderBrush="Black">
                 <StackPanel  Orientation="Vertical" VerticalAlignment ="Center">
-                    <Button Name="BtnAdd" Margin="10"  FontWeight="Bold" Background="LightSkyBlue"
+                    <Button Name="BtnAddVisit" Margin="10"  FontWeight="Bold" Background="LightSkyBlue"
                             Command="{Binding VisitCommand}">
                         <StackPanel Orientation="Horizontal">
                             <Image Source="/Assets/icons8-добавить-32.png"/>
-                            <TextBlock Text="Добавить" Margin="5 0" VerticalAlignment="Center"/>
+                            <TextBlock Text="Добавить обращение" Margin="5 0" VerticalAlignment="Center"/>
+                        </StackPanel>
+                    </Button>
+
+                    <Button Name="BtnAddCar" Margin="10"  FontWeight="Bold" Background="LightSkyBlue"
+                            Command="{Binding AddCarCommand}">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/Assets/car_add.png"/>
+                            <TextBlock Text="Добавить автомобиль" Margin="5 0" VerticalAlignment="Center"/>
                         </StackPanel>
                     </Button>
 

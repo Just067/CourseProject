@@ -16,10 +16,10 @@ public class SpecializationConfiguration : IEntityTypeConfiguration<Specializati
         // начальная инициализация таблицы
         List<Specialization> specializations = [
             new() { Id = 1, Name = "инженер"},
-            new() { Id = 2, Name = "инженер"},
-            new() { Id = 3, Name = "инженер"},
-            new() { Id = 4, Name = "инженер"},
-            new() { Id = 5, Name = "инженер"},
+            new() { Id = 2, Name = "автослесарь"},
+            new() { Id = 3, Name = "автоэлектрик"},
+            new() { Id = 4, Name = "шиномонтажник"},
+            new() { Id = 5, Name = "автомаляр"},
         ];
         builder.HasData(specializations);
     } // Configure

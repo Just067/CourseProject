@@ -1,22 +1,22 @@
 ﻿using System.Windows;
+using CourseProject.Models.Entities;
 
 namespace CourseProject.Views.Results;
 
 /// <summary>
-/// Логика взаимодействия для AddColorWindow.xaml
+/// Логика взаимодействия для BrandsWindow.xaml
 /// </summary>
-public partial class AddColorWindow : Window
+public partial class BrandsWindow : Window
 {
-    public AddColorWindow()
+    public BrandsWindow(List<Brand> brands)
     {
         InitializeComponent();
 
-        TbxColor.Focus();
+        DgBrands.ItemsSource = brands;
+        DgBrands.SelectedIndex = 0;
+    } // BrandsWindow
 
-    } // AddColorWindow
-
-    // вернуть выбранный цвет
-    public string Color => TbxColor.Text;
+    public Brand Brand => (Brand)DgBrands.SelectedItems[0]!;
 
     private void BtnSelect_Click(object sender, EventArgs e)
     {

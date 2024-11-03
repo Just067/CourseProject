@@ -7,22 +7,22 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
-    <Compile Update="Views\ChoiceWindows\InsuranceTypeChoiceWindow.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="Views\ChoiceWindows\PersonChoiceForm.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="Views\ChoiceWindows\SumChoiceWindow.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="Views\ChoiceWindows\SurnameChoiceWindow.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Update="Views\Results\AddBrandWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\Results\AddCarWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\Results\AddColorWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Results\BrandsWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Results\ColorsWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Results\PeopleWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Views\Results\VisitWindow.xaml.cs">
@@ -31,69 +31,33 @@
     <Compile Update="Views\Results\EmployeesWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\Results\ResultClientsWindow.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="Views\Results\ResultQuery07Window.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="Views\Results\ResultQuery05Window.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="Views\Results\ResultQuery06Window.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="Views\Results\ResultInsuranceContractsWindow.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="Views\ChoiceWindows\PassportChoiceWindow.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Page Update="Views\ChoiceWindows\InsuranceTypeChoiceWindow.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="Views\ChoiceWindows\PersonChoiceForm.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="Views\ChoiceWindows\SurnameChoiceWindow.xaml">
-      <SubType>Designer</SubType>
-    </Page>
     <Page Update="Views\MainWindow.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="Views\ChoiceWindows\SumChoiceWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\Results\AddBrandWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Views\Results\AddCarWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Views\Results\AddColorWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Results\BrandsWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Results\ColorsWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Results\PeopleWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\Results\VisitWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\Results\EmployeesWindow.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="Views\Results\ResultClientsWindow.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="Views\Results\ResultQuery07Window.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="Views\Results\ResultQuery05Window.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="Views\Results\ResultQuery06Window.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="Views\Results\ResultInsuranceContractsWindow.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="Views\ChoiceWindows\PassportChoiceWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

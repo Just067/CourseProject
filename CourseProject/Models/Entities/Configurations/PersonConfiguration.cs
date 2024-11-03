@@ -29,7 +29,7 @@ public class PersonConfiguration : IEntityTypeConfiguration<Person>
             new() { Id = 3, Surname = "Филимонов", Name = "Александр", Patronymic = "Павлович"},
             new() { Id = 4, Surname = "Павловская", Name = "Елена", Patronymic = "Петровна"},
             new() { Id = 5, Surname = "Петров", Name = "Павел", Patronymic = "Петрович"},
-            new() { Id = 6, Surname = "Петров", Name = "Павел", Patronymic = "Петрович"},
+            new() { Id = 6, Surname = "Шорохов", Name = "Виктор", Patronymic = "Евгеньевич"},
             new() { Id = 7, Surname = "Петров", Name = "Павел", Patronymic = "Петрович"},
             new() { Id = 8, Surname = "Павлов", Name = "Павел", Patronymic = "Петрович"},
             new() { Id = 9, Surname = "Петров", Name = "Павел", Patronymic = "Петрович"},

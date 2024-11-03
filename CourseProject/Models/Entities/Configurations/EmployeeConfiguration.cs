@@ -30,10 +30,10 @@ public class EmployeeConfiguration : IEntityTypeConfiguration<Employee>
         // начальная инициализация таблицы
         List<Employee> employees = [
             new() { Id = 1, PersonId = 5, SpecializationId = 1, Category = 1, Experience = 15},
-            new() { Id = 2, PersonId = 6, SpecializationId = 2, Category = 1, Experience = 15},
-            new() { Id = 3, PersonId = 7, SpecializationId = 3, Category = 1, Experience = 15},
-            new() { Id = 4, PersonId = 8, SpecializationId = 4, Category = 1, Experience = 15},
-            new() { Id = 5, PersonId = 9, SpecializationId = 5, Category = 1, Experience = 15},
+            new() { Id = 2, PersonId = 6, SpecializationId = 2, Category = 2, Experience = 20},
+            new() { Id = 3, PersonId = 7, SpecializationId = 3, Category = 3, Experience = 5},
+            new() { Id = 4, PersonId = 8, SpecializationId = 4, Category = 4, Experience = 1},
+            new() { Id = 5, PersonId = 9, SpecializationId = 5, Category = 2, Experience = 10},
         ];
         builder.HasData(employees);
     } // Configure
