@@ -9,8 +9,8 @@ public partial class MainWindowViewModel
     // добавление нового цвета
     private void AddColorExec(object o)
     {
-        var colors = _controller.GetAllColors()
-            .Select(item => item.Name);
+        var dictionary = _controller.GetAllColors()
+            .ToDictionary(c => c.Name);
 
         AddColorWindow dialog = new();
 
@@ -21,28 +21,44 @@ public partial class MainWindowViewModel
 
         string color = dialog.Color.ToLower();
 
-        if (!colors.Contains(color))
+        if (!dictionary.ContainsKey(color))
         {
             _controller.AddColor(new Color { Name = color });
 
-            colors = _controller.GetAllColors()
-                .Select(item => item.Name);
-
-            var colorNames = string.Join(", ", colors.Select(c => c));
-
-            MessageBox.Show($"Цвет '{colorNames}' успешно добавлен.");
+            MessageBox.Show($"Цвет '{color}' успешно добавлен.");
 
         }
         else
         {
-            colors = _controller.GetAllColors()
-                .Select(item => item.Name);
-
-            var colorNames = string.Join(", ", colors.Select(c => c));
-
-            MessageBox.Show($"Цвет '{colorNames}' уже существует.");
+            MessageBox.Show($"Цвет '{color}' уже существует.");
         }
     }
+
+    private void ShowClientExec(object o)
+    {
+        var client = (Client)HostWindow.DgClients.SelectedItem;
+
+        var prefix = "/Assets/Clients/";
+        client.PathPhoto = (client.PathPhoto.StartsWith(prefix) ? "" : prefix) + client.PathPhoto;
+        var win = new EditClientWindow(client, _controller);
+
+        win.ShowDialog();
+
+        FillDataGrids();
+    } // ShowClientExec
+
+    private void ShowCarExec(object o)
+    {
+        var car = (Car)HostWindow.DgCars.SelectedItem;
+
+        var prefix = "/Assets/Cars/";
+        car.PathPhoto = (car.PathPhoto.StartsWith(prefix) ? "" : prefix) + car.PathPhoto;
+        var win = new EditCarWindow(car, _controller);
+
+        win.ShowDialog();
+
+        FillDataGrids();
+    } // ShowCarExec
 
     // добавление новой марки автомобиля
     private void AddBrandExec(object o)

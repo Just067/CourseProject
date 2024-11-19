@@ -25,7 +25,12 @@ public partial class MainWindowViewModel
 
     public RelayCommand AddCarCommand { get; set; }
 
+    public RelayCommand EditClientCommand { get; set; }
+
+    public RelayCommand EditCarCommand { get; set; }
+
     public MainWindowViewModel(MainWindow hostWindow, ServiceStationController controller) {
+
         HostWindow = hostWindow;
         _controller = controller;
 
@@ -41,6 +46,10 @@ public partial class MainWindowViewModel
 
         AddCarCommand = new(AddCarExec);
 
+        EditClientCommand = new(ShowClientExec);
+
+        EditCarCommand = new(ShowCarExec);
+
         FillDataGrids();
 
     } // MainWindowViewModel
@@ -48,13 +57,7 @@ public partial class MainWindowViewModel
     public void FillDataGrids()
     {
         HostWindow.DgClients.ItemsSource = _controller.GetAllClients();
-        //HostWindow.DgSpecializations.ItemsSource = _controller.GetAllSpecializations();
-        //HostWindow.DgPeople.ItemsSource = _controller.GetAllPeople();
-        //HostWindow.DgBrands.ItemsSource = _controller.GetAllBrands();
         HostWindow.DgCars.ItemsSource = _controller.GetAllCars();
-        //HostWindow.DgDefects.ItemsSource = _controller.GetAllDefects();
-        //HostWindow.DgColors.ItemsSource = _controller.GetAllColors();
-        //HostWindow.DgServices.ItemsSource = _controller.GetAllServices();
         HostWindow.DgVisits.ItemsSource = _controller.GetAllVisits();
     }
 

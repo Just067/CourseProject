@@ -19,5 +19,7 @@ public class Car
     public int ReleaseYear { get; set; }
     public string StateNumber { get; set; }
 
+    public string PathPhoto { get; set; }
+
     public virtual List<Visit> Visits { get; set; } = [];
 }

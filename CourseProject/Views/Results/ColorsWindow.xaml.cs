@@ -12,11 +12,12 @@ public partial class ColorsWindow : Window
     {
         InitializeComponent();
 
-        DgColors.ItemsSource = colors;
-        DgColors.SelectedIndex = 0;
+        LvColors.ItemsSource = null;
+        LvColors.ItemsSource = colors;
+        LvColors.SelectedIndex = 0;
     } // ColorsWindow
 
-    public Color Color => (Color)DgColors.SelectedItems[0]!;
+    public Color Color => (Color)LvColors.SelectedItem;
 
     private void BtnSelect_Click(object sender, EventArgs e)
     {

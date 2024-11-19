@@ -7,8 +7,8 @@
         Title="MainWindow"
         FontSize="16"
         WindowStartupLocation="CenterScreen"
-        Icon="/Assets/database_black.png">
-
+        Icon="/Assets/database_black.png"
+        WindowState="Maximized">
     <Grid>
         <Grid.RowDefinitions>
             <!-- Меню -->
@@ -35,7 +35,7 @@
         <ToolBarTray Grid.Row ="1" Background="White">
             <ToolBar 
                      FontFamily="Verdana"
-                     Background="Transparent">
+                     Background="White">
 
                 <Button Margin="5, 0"
                         Padding="5"
@@ -81,7 +81,9 @@
                     <Image Source="/Assets/icons8-document-32.png"></Image>
                 </Button>
 
-                <Button Margin="930 0 0 0"
+                <Separator/>
+
+                <Button Margin="5 0"
                         Command="{Binding ExitCommand}"
                         ToolTip="Завершение приложения">
                     <Image Source="/Assets/icons8-exit-32.png"></Image>
@@ -128,7 +130,15 @@
                                     <DataGridTextColumn Header="Имя" Binding="{Binding Person.Name}"/>
                                     <DataGridTextColumn Header="Отчество" Binding="{Binding Person.Patronymic}"/>
                                 </DataGrid.Columns>
+
+                                <DataGrid.RowStyle>
+                                    <Style TargetType="DataGridRow">
+                                        <EventSetter Event="MouseDoubleClick" Handler="ClientsDoubleClick"/>
+                                    </Style>
+                                </DataGrid.RowStyle>
                             </DataGrid>
+
+
                         </StackPanel>
 
                         <StackPanel Margin="10">
@@ -149,6 +159,13 @@
                                     <DataGridTextColumn Header="Государственный номер" Binding="{Binding StateNumber}"/>
                                     <DataGridTextColumn Header="Год выпуска" Binding="{Binding ReleaseYear}"/>
                                 </DataGrid.Columns>
+
+                                <DataGrid.RowStyle>
+                                    <Style TargetType="DataGridRow">
+                                        <EventSetter Event="MouseDoubleClick" Handler="CarsDoubleClick"/>
+                                    </Style>
+                                </DataGrid.RowStyle>
+
                             </DataGrid>
                         </StackPanel>
 
@@ -211,10 +228,19 @@
                         </StackPanel>
                     </Button>
 
-                    <Button Name="BtnEdit" Margin="10"  FontWeight="Bold" Background="Aquamarine">
+                    <Button Name="BtnEditClient" Margin="10"  FontWeight="Bold" Background="Aquamarine"
+                            Command="{Binding EditClientCommand}">
                         <StackPanel Orientation="Horizontal">
                             <Image Source="/Assets/icons8-edit-32.png"/>
                             <TextBlock Text="Редактировать клиента" Margin="5 0" VerticalAlignment="Center"/>
+                        </StackPanel>
+                    </Button>
+
+                    <Button Name="BtnEditCar" Margin="10"  FontWeight="Bold" Background="MediumSlateBlue"
+                            Command="{Binding EditCarCommand}">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/Assets/icons8-edit-32.png"/>
+                            <TextBlock Text="Редактировать автомобиль" Margin="5 0" VerticalAlignment="Center"/>
                         </StackPanel>
                     </Button>
 

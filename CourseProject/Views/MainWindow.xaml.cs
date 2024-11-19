@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using System.Windows.Input;
 using CourseProject.Controllers;
 using CourseProject.ViewModels;
 
@@ -18,4 +19,20 @@ public partial class MainWindow : Window
         DataContext = new MainWindowViewModel(this, _serviceStationController);
     }
 
+
+    private void ClientsDoubleClick(object sender, MouseButtonEventArgs e)
+    {
+        if (DataContext is MainWindowViewModel viewModel)
+        {
+            viewModel.EditClientCommand.Execute(this);
+        }
+    }
+
+    private void CarsDoubleClick(object sender, MouseButtonEventArgs e)
+    {
+        if (DataContext is MainWindowViewModel viewModel)
+        {
+            viewModel.EditCarCommand.Execute(this);
+        }
+    }
 }

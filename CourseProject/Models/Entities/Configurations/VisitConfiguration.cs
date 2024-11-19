@@ -9,6 +9,9 @@ public class VisitConfiguration : IEntityTypeConfiguration<Visit>
     public void Configure(EntityTypeBuilder<Visit> builder)
     {
 
+        builder.Property(b => b.Id)
+            .ValueGeneratedOnAdd();
+
         builder.HasOne(v => v.Client)
             .WithMany(c => c.Visits)
             .HasForeignKey(v => v.ClientId)

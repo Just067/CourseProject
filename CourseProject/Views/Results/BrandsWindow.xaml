@@ -11,17 +11,38 @@
 
     <StackPanel Margin="10">
         <TextBlock Padding="5">
-            Цвета
+            Марки
         </TextBlock>
-        <DataGrid AutoGenerateColumns="False"
-                  IsReadOnly="True"
-                  Name ="DgBrands">
+        <ListView
+            Name ="LvBrands">
 
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="№ п/п" Binding="{Binding Id}"/>
-                <DataGridTextColumn Header="Марка" Binding="{Binding Name}"/>
-            </DataGrid.Columns>
-        </DataGrid>
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="№ п/п">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock 
+                                    Padding="5"
+                                    Text="{Binding Id, StringFormat={}{0:n0}}" 
+                                    TextAlignment="Right" />
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+
+                    <GridViewColumn 
+                        Width="160"
+                        Header="Марка автомобиля">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock 
+                                    Padding="5 0"
+                                    Text="{Binding Name}" />
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
 
         <StackPanel Orientation="Horizontal">
             <Button Content="Выбрать" Margin="10" Width="100" Height="30" Background="LightGreen" Click="BtnSelect_Click"/>

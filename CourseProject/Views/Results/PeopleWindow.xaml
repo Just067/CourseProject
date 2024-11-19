@@ -10,20 +10,59 @@
 
     <StackPanel Margin="10">
         <TextBlock Padding="5" FontSize="12">
-            Цвета
+            Владельцы
         </TextBlock>
-        <DataGrid AutoGenerateColumns="False"
-                  IsReadOnly="True"
-                  Name ="DgPeople">
+        <ListView
+            Name ="LvPeople">
 
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="№ п/п" Binding="{Binding Id}"/>
-                <DataGridTextColumn Header="Фамилия" Binding="{Binding Surname}"/>
-                <DataGridTextColumn Header="Имя" Binding="{Binding Name}"/>
-                <DataGridTextColumn Header="Отчество" Binding="{Binding Patronymic}"/>
-            </DataGrid.Columns>
-        </DataGrid>
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="№ п/п">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock 
+                                    Padding="5"
+                                    Text="{Binding Id, StringFormat={}{0:n0}}" 
+                                    TextAlignment="Right" />
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
 
+                    <GridViewColumn 
+                        Header="Фамилия">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock 
+                                    Padding="5"
+                                    Text="{Binding Surname}" />
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+
+                    <GridViewColumn 
+                        Header="Имя">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock 
+                                    Padding="5"
+                                    Text="{Binding Name}" />
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+
+                    <GridViewColumn 
+                        Header="Отчество">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock 
+                                    Padding="5"
+                                    Text="{Binding Patronymic}" />
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
         <StackPanel Orientation="Horizontal">
             <Button Content="Выбрать" Margin="10" Width="100" Height="30" Background="LightGreen" Click="BtnSelect_Click"/>
             <Button Content="Отмена" Margin="10" Width="100" Height="30" Background="LightCoral" Click="BtnCancel_Click"/>

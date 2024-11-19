@@ -5,23 +5,47 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CourseProject.Views.Results"
         mc:Ignorable="d"
-        Title="ColorsWindow" SizeToContent="WidthAndHeight"
+        Title="ColorsWindow"
         WindowStartupLocation="CenterScreen"
+        SizeToContent="WidthAndHeight"
         FontSize="14">
 
-    <StackPanel Margin="10">
+    <StackPanel 
+        Margin="10" VerticalAlignment="Top"
+        HorizontalAlignment="Center">
         <TextBlock Padding="5">
             Цвета
         </TextBlock>
-        <DataGrid AutoGenerateColumns="False"
-                  IsReadOnly="True"
-                  Name ="DgColors">
+        <ListView
+           Name ="LvColors">
 
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="№ п/п" Binding="{Binding Id}"/>
-                <DataGridTextColumn Header="Цвет" Binding="{Binding Name}"/>
-            </DataGrid.Columns>
-        </DataGrid>
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="№ п/п">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock 
+                                    Padding="5"
+                                    Text="{Binding Id, StringFormat={}{0:n0}}" 
+                                    TextAlignment="Right" />
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+
+                    <GridViewColumn 
+                        Width="160"
+                        Header="Цвет">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock 
+                                    Padding="5 0"
+                                    Text="{Binding Name}" />
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
 
         <StackPanel Orientation="Horizontal">
             <Button Content="Выбрать" Margin="10" Width="100" Height="30" Background="LightGreen" Click="BtnSelect_Click"/>

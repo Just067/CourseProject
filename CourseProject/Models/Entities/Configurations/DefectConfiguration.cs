@@ -8,6 +8,9 @@ public class DefectConfiguration : IEntityTypeConfiguration<Defect>
     public void Configure(EntityTypeBuilder<Defect> builder)
     {
 
+        builder.Property(b => b.Id)
+            .ValueGeneratedOnAdd();
+
         builder
             .Property(b => b.Name)
             .IsUnicode()

@@ -8,10 +8,8 @@ public partial class AddCarWindowViewModel
     // выбор цвета
     private void ColorExec(object o)
     {
-        var colors = _controller.GetAllColors();
-
         // передача данных в форму
-        var colorForm = new ColorsWindow(colors);
+        var colorForm = new ColorsWindow(_controller.GetAllColors());
 
         // показать диалоговое окно редактирования, выход если диалог вернул не ОК
         if (colorForm.ShowDialog() == false)
@@ -27,10 +25,8 @@ public partial class AddCarWindowViewModel
     // выбор владельца авто
     private void OwnerExec(object o)
     {
-        var owners = _controller.GetAllPeople();
-
         // передача данных в форму
-        var ownerWindow = new PeopleWindow(owners);
+        var ownerWindow = new PeopleWindow(_controller.GetAllPeople());
 
         // показать диалоговое окно редактирования, выход если диалог вернул не ОК
         if (ownerWindow.ShowDialog() == false)
@@ -45,10 +41,8 @@ public partial class AddCarWindowViewModel
 
     private void BrandExec(object o)
     {
-        var brands = _controller.GetAllBrands();
-
         // передача данных в форму
-        var brandWindow = new BrandsWindow(brands);
+        var brandWindow = new BrandsWindow(_controller.GetAllBrands());
 
         // показать диалоговое окно редактирования, выход если диалог вернул не ОК
         if (brandWindow.ShowDialog() == false)

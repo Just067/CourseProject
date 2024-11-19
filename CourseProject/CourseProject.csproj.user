@@ -19,6 +19,12 @@
     <Compile Update="Views\Results\BrandsWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\Results\EditCarWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Results\EditClientWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\Results\ColorsWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -46,6 +52,12 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\Results\BrandsWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Results\EditCarWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Results\EditClientWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\Results\ColorsWindow.xaml">

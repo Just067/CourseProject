@@ -7,6 +7,9 @@ public class ClientConfiguration : IEntityTypeConfiguration<Client>
 {
     public void Configure(EntityTypeBuilder<Client> builder)
     {
+        builder.Property(b => b.Id)
+            .ValueGeneratedOnAdd();
+
         builder
             .HasOne(c => c.Person)
             .WithOne(p => p.Client)
@@ -28,17 +31,23 @@ public class ClientConfiguration : IEntityTypeConfiguration<Client>
             .IsUnicode()
             .IsRequired();
 
+        builder
+            .Property(p => p.PathPhoto)
+            .HasMaxLength(255)
+            .IsUnicode()
+            .IsRequired();
+
         builder.HasIndex(c => c.Passport).IsUnique();
 
         // начальная инициализация таблицы
         List<Client> clients = [
-            new() { Id = 1, PersonId = 1, Passport = "13 12 158736", BirthDate = new DateTime(2000, 11, 12), Registration = "ул. Ленина 15"},
-            new() { Id = 2, PersonId = 2, Passport = "13 13 158736", BirthDate = new DateTime(2000, 11, 12), Registration = "ул. Ленина 15"},
-            new() { Id = 3, PersonId = 3, Passport = "13 14 158736", BirthDate = new DateTime(2000, 11, 12), Registration = "ул. Ленина 15"},
-            new() { Id = 4, PersonId = 4, Passport = "13 15 158736", BirthDate = new DateTime(2000, 11, 12), Registration = "ул. Ленина 15"},
-            new() { Id = 5, PersonId = 5, Passport = "13 16 158736", BirthDate = new DateTime(2000, 11, 12), Registration = "ул. Ленина 15"},
-            new() { Id = 6, PersonId = 6, Passport = "13 17 158736", BirthDate = new DateTime(2000, 11, 12), Registration = "ул. Ленина 15"},
-            new() { Id = 7, PersonId = 7, Passport = "13 18 158736", BirthDate = new DateTime(2000, 11, 12), Registration = "ул. Ленина 15"}
+            new() { Id = 1, PersonId = 1, Passport = "13 12 158736", BirthDate = new DateTime(2000, 11, 12), Registration = "ул. Ленина 15", PathPhoto = "man_001.jpg"},
+            new() { Id = 2, PersonId = 2, Passport = "13 13 158736", BirthDate = new DateTime(2000, 11, 12), Registration = "ул. Ленина 15", PathPhoto = "man_002.jpg"},
+            new() { Id = 3, PersonId = 3, Passport = "13 14 158736", BirthDate = new DateTime(2000, 11, 12), Registration = "ул. Ленина 15", PathPhoto = "man_003.jpg"},
+            new() { Id = 4, PersonId = 4, Passport = "13 15 158736", BirthDate = new DateTime(2000, 11, 12), Registration = "ул. Ленина 15", PathPhoto = "man_004.jpg"},
+            new() { Id = 5, PersonId = 5, Passport = "13 16 158736", BirthDate = new DateTime(2000, 11, 12), Registration = "ул. Ленина 15", PathPhoto = "man_005.jpg"},
+            new() { Id = 6, PersonId = 6, Passport = "13 17 158736", BirthDate = new DateTime(2000, 11, 12), Registration = "ул. Ленина 15", PathPhoto = "man_006.jpg"},
+            new() { Id = 7, PersonId = 7, Passport = "13 18 158736", BirthDate = new DateTime(2000, 11, 12), Registration = "ул. Ленина 15", PathPhoto = "man_007.jpg"}
         ];
         builder.HasData(clients);
     } // Configure

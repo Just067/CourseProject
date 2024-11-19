@@ -1,4 +1,5 @@
 ﻿using CourseProject.Models.Entities;
+using Microsoft.EntityFrameworkCore;
 
 namespace CourseProject.Controllers;
 
@@ -44,6 +45,18 @@ public class ServiceStationController(ServiceStationContext db)
    public void AddCar(Car car)
    {
        db.Cars.Add(car);
+       db.SaveChanges();
+   }
+
+   public void UpdateClient(Client client)
+   {
+       db.Clients.Update(client);
+       db.SaveChanges();
+   }
+
+   public void UpdateCar(Car car)
+   {
+       db.Cars.Update(car);
        db.SaveChanges();
    }
 

@@ -12,11 +12,11 @@ public partial class BrandsWindow : Window
     {
         InitializeComponent();
 
-        DgBrands.ItemsSource = brands;
-        DgBrands.SelectedIndex = 0;
+        LvBrands.ItemsSource = brands;
+        LvBrands.SelectedIndex = 0;
     } // BrandsWindow
 
-    public Brand Brand => (Brand)DgBrands.SelectedItems[0]!;
+    public Brand Brand => (Brand)LvBrands.SelectedItems[0]!;
 
     private void BtnSelect_Click(object sender, EventArgs e)
     {

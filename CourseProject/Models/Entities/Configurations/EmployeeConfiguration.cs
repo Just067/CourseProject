@@ -7,6 +7,10 @@ public class EmployeeConfiguration : IEntityTypeConfiguration<Employee>
 {
     public void Configure(EntityTypeBuilder<Employee> builder)
     {
+
+        builder.Property(b => b.Id)
+            .ValueGeneratedOnAdd();
+
         builder
             .HasOne(e => e.Person)
             .WithMany(p => p.Employees)

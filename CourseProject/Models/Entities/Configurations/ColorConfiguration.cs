@@ -8,6 +8,9 @@ public class ColorConfiguration : IEntityTypeConfiguration<Color>
     public void Configure(EntityTypeBuilder<Color> builder)
     {
 
+        builder.Property(b => b.Id)
+            .ValueGeneratedOnAdd();
+
         builder
             .Property(b => b.Name)
             .IsUnicode()

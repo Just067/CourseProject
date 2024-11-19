@@ -12,11 +12,11 @@ public partial class PeopleWindow : Window
     {
         InitializeComponent();
 
-        DgPeople.ItemsSource = people;
-        DgPeople.SelectedIndex = 0;
+        LvPeople.ItemsSource = people;
+        LvPeople.SelectedIndex = 0;
     } // PeopleWindow
 
-    public Person Person => (Person)DgPeople.SelectedItems[0]!;
+    public Person Person => (Person)LvPeople.SelectedItems[0]!;
 
     private void BtnSelect_Click(object sender, EventArgs e)
     {

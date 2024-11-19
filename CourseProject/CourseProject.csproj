@@ -9,7 +9,48 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Assets\Cars\car_001.png" />
+    <None Remove="Assets\Cars\car_002.png" />
+    <None Remove="Assets\Cars\car_003.png" />
+    <None Remove="Assets\Cars\car_004.png" />
+    <None Remove="Assets\Cars\car_005.png" />
+    <None Remove="Assets\Cars\car_006.png" />
+    <None Remove="Assets\Cars\car_007.png" />
+    <None Remove="Assets\Cars\car_008.png" />
+    <None Remove="Assets\Cars\car_009.png" />
+    <None Remove="Assets\Cars\car_010.png" />
+    <None Remove="Assets\Cars\car_011.png" />
+    <None Remove="Assets\Cars\car_012.png" />
+    <None Remove="Assets\Cars\car_013.png" />
     <None Remove="Assets\car_add.png" />
+    <None Remove="Assets\Clients\man_001.jpg" />
+    <None Remove="Assets\Clients\man_002.jpg" />
+    <None Remove="Assets\Clients\man_003.jpg" />
+    <None Remove="Assets\Clients\man_004.jpg" />
+    <None Remove="Assets\Clients\man_005.jpg" />
+    <None Remove="Assets\Clients\man_006.jpg" />
+    <None Remove="Assets\Clients\man_007.jpg" />
+    <None Remove="Assets\Clients\man_008.jpg" />
+    <None Remove="Assets\Clients\man_009.jpg" />
+    <None Remove="Assets\Clients\man_010.jpg" />
+    <None Remove="Assets\Clients\man_011.jpg" />
+    <None Remove="Assets\Clients\man_012.jpg" />
+    <None Remove="Assets\Clients\man_013.jpg" />
+    <None Remove="Assets\Clients\man_014.jpg" />
+    <None Remove="Assets\Clients\woman_001.jpg" />
+    <None Remove="Assets\Clients\woman_002.jpg" />
+    <None Remove="Assets\Clients\woman_003.jpg" />
+    <None Remove="Assets\Clients\woman_004.jpg" />
+    <None Remove="Assets\Clients\woman_005.jpg" />
+    <None Remove="Assets\Clients\woman_006.jpg" />
+    <None Remove="Assets\Clients\woman_007.jpg" />
+    <None Remove="Assets\Clients\woman_008.jpg" />
+    <None Remove="Assets\Clients\woman_009.jpg" />
+    <None Remove="Assets\Clients\woman_010.jpg" />
+    <None Remove="Assets\Clients\woman_011.jpg" />
+    <None Remove="Assets\Clients\woman_012.jpg" />
+    <None Remove="Assets\Clients\woman_013.jpg" />
+    <None Remove="Assets\Clients\woman_014.jpg" />
     <None Remove="Assets\database_black.png" />
     <None Remove="Assets\icons8-car-32.png" />
     <None Remove="Assets\icons8-color-32.png" />
@@ -21,12 +62,53 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Proxies" Version="8.0.8" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.8" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Proxies" Version="9.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="9.0.0" />
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Assets\Cars\car_001.png" />
+    <Resource Include="Assets\Cars\car_002.png" />
+    <Resource Include="Assets\Cars\car_003.png" />
+    <Resource Include="Assets\Cars\car_004.png" />
+    <Resource Include="Assets\Cars\car_005.png" />
+    <Resource Include="Assets\Cars\car_006.png" />
+    <Resource Include="Assets\Cars\car_007.png" />
+    <Resource Include="Assets\Cars\car_008.png" />
+    <Resource Include="Assets\Cars\car_009.png" />
+    <Resource Include="Assets\Cars\car_010.png" />
+    <Resource Include="Assets\Cars\car_011.png" />
+    <Resource Include="Assets\Cars\car_012.png" />
+    <Resource Include="Assets\Cars\car_013.png" />
     <Resource Include="Assets\car_add.png" />
+    <Resource Include="Assets\Clients\man_001.jpg" />
+    <Resource Include="Assets\Clients\man_002.jpg" />
+    <Resource Include="Assets\Clients\man_003.jpg" />
+    <Resource Include="Assets\Clients\man_004.jpg" />
+    <Resource Include="Assets\Clients\man_005.jpg" />
+    <Resource Include="Assets\Clients\man_006.jpg" />
+    <Resource Include="Assets\Clients\man_007.jpg" />
+    <Resource Include="Assets\Clients\man_008.jpg" />
+    <Resource Include="Assets\Clients\man_009.jpg" />
+    <Resource Include="Assets\Clients\man_010.jpg" />
+    <Resource Include="Assets\Clients\man_011.jpg" />
+    <Resource Include="Assets\Clients\man_012.jpg" />
+    <Resource Include="Assets\Clients\man_013.jpg" />
+    <Resource Include="Assets\Clients\man_014.jpg" />
+    <Resource Include="Assets\Clients\woman_001.jpg" />
+    <Resource Include="Assets\Clients\woman_002.jpg" />
+    <Resource Include="Assets\Clients\woman_003.jpg" />
+    <Resource Include="Assets\Clients\woman_004.jpg" />
+    <Resource Include="Assets\Clients\woman_005.jpg" />
+    <Resource Include="Assets\Clients\woman_006.jpg" />
+    <Resource Include="Assets\Clients\woman_007.jpg" />
+    <Resource Include="Assets\Clients\woman_008.jpg" />
+    <Resource Include="Assets\Clients\woman_009.jpg" />
+    <Resource Include="Assets\Clients\woman_010.jpg" />
+    <Resource Include="Assets\Clients\woman_011.jpg" />
+    <Resource Include="Assets\Clients\woman_012.jpg" />
+    <Resource Include="Assets\Clients\woman_013.jpg" />
+    <Resource Include="Assets\Clients\woman_014.jpg" />
     <Resource Include="Assets\database_black.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
