@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
         Title="MainWindow"
-        FontSize="16"
+        FontSize="15"
         WindowStartupLocation="CenterScreen"
         Icon="/Assets/database_black.png"
         WindowState="Maximized">
@@ -212,7 +212,7 @@
                       VerticalAlignment="Stretch"
                       BorderThickness="1" BorderBrush="Black">
                 <StackPanel  Orientation="Vertical" VerticalAlignment ="Center">
-                    <Button Name="BtnAddVisit" Margin="10"  FontWeight="Bold" Background="LightSkyBlue"
+                    <Button Name="BtnAddVisit" Margin="10"  FontWeight="Bold" Background="LightPink"
                             Command="{Binding VisitCommand}">
                         <StackPanel Orientation="Horizontal">
                             <Image Source="/Assets/icons8-добавить-32.png"/>

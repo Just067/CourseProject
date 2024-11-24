@@ -33,47 +33,4 @@ public class ServiceStationContext : DbContext
             .UseLazyLoadingProxies()
             .UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=ServiceStationDb;Trusted_Connection=True;");
     } // OnConfiguring
-
-    protected override void OnModelCreating(ModelBuilder modelBuilder)
-    {
-        modelBuilder.Entity<Person>()
-            .ToTable("People", u => u.Property(e => e.Id)
-                .UseIdentityColumn());
-
-        modelBuilder.Entity<Client>()
-            .ToTable("Clients", u => u.Property(e => e.Id)
-                .UseIdentityColumn());
-
-        modelBuilder.Entity<Employee>()
-            .ToTable("Employees", u => u.Property(e => e.Id)
-                .UseIdentityColumn());
-
-        modelBuilder.Entity<Brand>()
-            .ToTable("Brands", u => u.Property(e => e.Id)
-                .UseIdentityColumn());
-
-        modelBuilder.Entity<Color>()
-            .ToTable("Colors", u => u.Property(e => e.Id)
-                .UseIdentityColumn());
-
-        modelBuilder.Entity<Defect>()
-            .ToTable("Defects", u => u.Property(e => e.Id)
-                .UseIdentityColumn());
-
-        modelBuilder.Entity<Car>()
-            .ToTable("Cars", u => u.Property(e => e.Id)
-            .UseIdentityColumn());
-
-        modelBuilder.Entity<Visit>()
-            .ToTable("Visits", u => u.Property(e => e.Id)
-                .UseIdentityColumn());
-
-        modelBuilder.Entity<Specialization>()
-            .ToTable("Specializations", u => u.Property(e => e.Id)
-                .UseIdentityColumn());
-
-        modelBuilder.Entity<Service>()
-            .ToTable("Services", u => u.Property(e => e.Id)
-                .UseIdentityColumn());
-    }
 }

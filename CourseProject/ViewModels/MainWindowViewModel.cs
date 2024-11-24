@@ -13,20 +13,28 @@ public partial class MainWindowViewModel
 
     public MainWindow HostWindow { get; set; }
 
+    // команда завершения работы приложения
     public RelayCommand ExitCommand { get; set; }
 
+    // команда открытия окна с работниками
     public RelayCommand EmployeesCommand { get; set; }
 
+    // команда открытия окна посещения
     public RelayCommand VisitCommand { get; set; }
 
+    // команда добавления цвета автомобиля
     public RelayCommand AddColorCommand { get; set; }
 
+    // команда добавления марки автомобиля
     public RelayCommand AddBrandCommand { get; set; }
 
+    // команда открытия окна с добавлением автомобиля
     public RelayCommand AddCarCommand { get; set; }
 
+    // команда редактирования клиента
     public RelayCommand EditClientCommand { get; set; }
 
+    // команда редактирования автомобиля
     public RelayCommand EditCarCommand { get; set; }
 
     public MainWindowViewModel(MainWindow hostWindow, ServiceStationController controller) {

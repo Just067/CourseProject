@@ -37,20 +37,6 @@
     <None Remove="Assets\Clients\man_012.jpg" />
     <None Remove="Assets\Clients\man_013.jpg" />
     <None Remove="Assets\Clients\man_014.jpg" />
-    <None Remove="Assets\Clients\woman_001.jpg" />
-    <None Remove="Assets\Clients\woman_002.jpg" />
-    <None Remove="Assets\Clients\woman_003.jpg" />
-    <None Remove="Assets\Clients\woman_004.jpg" />
-    <None Remove="Assets\Clients\woman_005.jpg" />
-    <None Remove="Assets\Clients\woman_006.jpg" />
-    <None Remove="Assets\Clients\woman_007.jpg" />
-    <None Remove="Assets\Clients\woman_008.jpg" />
-    <None Remove="Assets\Clients\woman_009.jpg" />
-    <None Remove="Assets\Clients\woman_010.jpg" />
-    <None Remove="Assets\Clients\woman_011.jpg" />
-    <None Remove="Assets\Clients\woman_012.jpg" />
-    <None Remove="Assets\Clients\woman_013.jpg" />
-    <None Remove="Assets\Clients\woman_014.jpg" />
     <None Remove="Assets\database_black.png" />
     <None Remove="Assets\icons8-car-32.png" />
     <None Remove="Assets\icons8-color-32.png" />
@@ -95,20 +81,6 @@
     <Resource Include="Assets\Clients\man_012.jpg" />
     <Resource Include="Assets\Clients\man_013.jpg" />
     <Resource Include="Assets\Clients\man_014.jpg" />
-    <Resource Include="Assets\Clients\woman_001.jpg" />
-    <Resource Include="Assets\Clients\woman_002.jpg" />
-    <Resource Include="Assets\Clients\woman_003.jpg" />
-    <Resource Include="Assets\Clients\woman_004.jpg" />
-    <Resource Include="Assets\Clients\woman_005.jpg" />
-    <Resource Include="Assets\Clients\woman_006.jpg" />
-    <Resource Include="Assets\Clients\woman_007.jpg" />
-    <Resource Include="Assets\Clients\woman_008.jpg" />
-    <Resource Include="Assets\Clients\woman_009.jpg" />
-    <Resource Include="Assets\Clients\woman_010.jpg" />
-    <Resource Include="Assets\Clients\woman_011.jpg" />
-    <Resource Include="Assets\Clients\woman_012.jpg" />
-    <Resource Include="Assets\Clients\woman_013.jpg" />
-    <Resource Include="Assets\Clients\woman_014.jpg" />
     <Resource Include="Assets\database_black.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>

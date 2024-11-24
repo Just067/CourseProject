@@ -9,7 +9,6 @@ public class ServiceStationController(ServiceStationContext db)
     public ServiceStationController() : this(new ServiceStationContext()) { }
 
     // чтение всех записей
-
     public List<Person> GetAllPeople() => db.People.ToList();
 
     public List<Client> GetAllClients() => db.Clients.ToList();
@@ -30,34 +29,35 @@ public class ServiceStationController(ServiceStationContext db)
 
     public List<Visit> GetAllVisits() => db.Visits.ToList();
 
-   public void AddColor(Color color)
-   {
+    // добавление нового цвета
+    public void AddColor(Color color) {
         db.Colors.Add(color);
         db.SaveChanges();
     }
 
-   public void AddBrand(Brand brand)
-   {
-       db.Brands.Add(brand);
-       db.SaveChanges();
-   }
+    // добавление новой марки автомобиля
+    public void AddBrand(Brand brand) {
+        db.Brands.Add(brand);
+        db.SaveChanges();
+    }
 
-   public void AddCar(Car car)
-   {
-       db.Cars.Add(car);
-       db.SaveChanges();
-   }
+    // добавление нового автомобиля
+    public void AddCar(Car car) { 
+        db.Cars.Add(car);
+        db.SaveChanges();
+    }
 
-   public void UpdateClient(Client client)
-   {
+    // изменение клиента
+    public void UpdateClient(Client client) { 
        db.Clients.Update(client);
        db.SaveChanges();
-   }
-
-   public void UpdateCar(Car car)
-   {
+    }
+    
+    // изменение автомобиля
+    public void UpdateCar(Car car)
+    {
        db.Cars.Update(car);
        db.SaveChanges();
-   }
+    }
 
 } // class ServiceStationController

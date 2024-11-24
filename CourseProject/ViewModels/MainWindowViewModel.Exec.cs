@@ -34,6 +34,7 @@ public partial class MainWindowViewModel
         }
     }
 
+    // открытие окна клиента
     private void ShowClientExec(object o)
     {
         var client = (Client)HostWindow.DgClients.SelectedItem;
@@ -47,6 +48,7 @@ public partial class MainWindowViewModel
         FillDataGrids();
     } // ShowClientExec
 
+    // открытие окна автомобиля
     private void ShowCarExec(object o)
     {
         var car = (Car)HostWindow.DgCars.SelectedItem;
@@ -63,10 +65,9 @@ public partial class MainWindowViewModel
     // добавление новой марки автомобиля
     private void AddBrandExec(object o)
     {
-        // Получить список всех названий марок из базы данных
+        // Получить словарь всех названий марок из базы данных
         var brands = _controller.GetAllBrands()
-            .Select(item => item.Name.ToLower())
-            .Distinct();
+            .ToDictionary(item => item.Name.ToLower());
 
         // Открыть диалог для ввода новой марки
         AddBrandWindow dialog = new();
@@ -79,7 +80,7 @@ public partial class MainWindowViewModel
         string brand = dialog.Brand;
 
         // Проверить наличие марки и добавить, если его нет
-        if (!brands.Contains(brand.ToLower()))
+        if (!brands.ContainsKey(brand.ToLower()))
         {
             _controller.AddBrand(new Brand { Name = brand });
             MessageBox.Show($"Марка '{brand}' успешно добавлена.");
@@ -90,6 +91,7 @@ public partial class MainWindowViewModel
         }
     }
 
+    // добавление автомобиля
     private void AddCarExec(object o)
     {
         AddCarWindow dialog = new();

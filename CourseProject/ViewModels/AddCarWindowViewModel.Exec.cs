@@ -1,11 +1,12 @@
-﻿using CourseProject.Views.Results;
+﻿using CourseProject.Infrastructure.Factories;
+using CourseProject.Views.Results;
 using CourseProject.Models.Entities;
 
 namespace CourseProject.ViewModels;
 
 public partial class AddCarWindowViewModel
 {
-    // выбор цвета
+    // выбор цвета автомобиля
     private void ColorExec(object o)
     {
         // передача данных в форму
@@ -22,7 +23,7 @@ public partial class AddCarWindowViewModel
         HostWindow.TxbColor.Text = color.Name;
     }
 
-    // выбор владельца авто
+    // выбор владельца автомобиля
     private void OwnerExec(object o)
     {
         // передача данных в форму
@@ -39,6 +40,7 @@ public partial class AddCarWindowViewModel
         HostWindow.TxbOwner.Text = person.FullName;
     }
 
+    // выбор марки автомобиля
     private void BrandExec(object o)
     {
         // передача данных в форму
@@ -55,6 +57,7 @@ public partial class AddCarWindowViewModel
         HostWindow.TxbBrand.Text = brand.Name;
     }
 
+    // добавление автомобиля
     private void SelectExec(object o)
     {
         HostWindow.DialogResult = true;
@@ -71,18 +74,20 @@ public partial class AddCarWindowViewModel
             ColorId = colorId,
             OwnerId = ownerId,
             ReleaseYear = Convert.ToInt32(HostWindow.TxbReleaseYear.Text),
-            StateNumber = HostWindow.TxbStateNumber.Text
+            StateNumber = HostWindow.TxbStateNumber.Text,
+            PathPhoto = Factory.GetRandomCarPhoto()
         };
 
         _controller.AddCar(car);
 
         HostWindow.Close();
 
-    } // BtnSelect
+    }
 
+    // отмена
     private void CancelExec(object o)
     {
         HostWindow.DialogResult = false;
         HostWindow.Close();
-    } //BtnCancel
+    }
 }
