@@ -1,0 +1,118 @@
+﻿<Window x:Class="CourseProject.Views.Results.ClientsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CourseProject.Views.Results"
+        mc:Ignorable="d"
+        Title="ClientsWindow"
+        SizeToContent="WidthAndHeight"
+        WindowStartupLocation="CenterScreen"
+        MinHeight="200"
+        MinWidth="300">
+
+    <StackPanel Margin="10">
+        <TextBlock Padding="5">
+            Клиенты
+        </TextBlock>
+        <ListView
+        Name ="LvClients">
+
+        <ListView.View>
+            <GridView>
+                <GridViewColumn Header="№ п/п">
+                    <GridViewColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock 
+                                Padding="5"
+                                Text="{Binding Id, StringFormat={}{0:n0}}" 
+                                TextAlignment="Right" />
+                        </DataTemplate>
+                    </GridViewColumn.CellTemplate>
+                </GridViewColumn>
+
+                <GridViewColumn 
+                    Width="160"
+                    Header="Фамилия">
+                    <GridViewColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock 
+                                Padding="5 0"
+                                Text="{Binding Person.Surname}" />
+                        </DataTemplate>
+                    </GridViewColumn.CellTemplate>
+                </GridViewColumn>
+
+                <GridViewColumn 
+                    Width="160"
+                    Header="Имя">
+                    <GridViewColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock 
+                                Padding="5 0"
+                                Text="{Binding Person.Name}" />
+                        </DataTemplate>
+                    </GridViewColumn.CellTemplate>
+                </GridViewColumn>
+
+                <GridViewColumn 
+                    Width="160"
+                    Header="Отчество">
+                    <GridViewColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock 
+                                Padding="5 0"
+                                Text="{Binding Person.Patronymic}" />
+                        </DataTemplate>
+                    </GridViewColumn.CellTemplate>
+                </GridViewColumn>
+
+                <GridViewColumn 
+                    Width="150"
+                    Header="Дата рождения">
+                    <GridViewColumn.CellTemplate>
+                        <DataTemplate>
+                            <DatePickerTextBox
+                                IsReadOnly="True"
+                                Padding="5 0"
+                                Text="{Binding BirthDate, StringFormat={}{0:dd-MM-yyyy}}" />
+                        </DataTemplate>
+                    </GridViewColumn.CellTemplate>
+                </GridViewColumn>
+
+                <GridViewColumn 
+                    Width="150"
+                    Header="Паспорт">
+                    <GridViewColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock 
+                                Padding="5 0"
+                                Text="{Binding Passport}" />
+                        </DataTemplate>
+                    </GridViewColumn.CellTemplate>
+                </GridViewColumn>
+
+                <GridViewColumn 
+                    Width="150"
+                    Header="Адрес регистрации">
+                    <GridViewColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock 
+                                Padding="5 0"
+                                Text="{Binding Registration}" />
+                        </DataTemplate>
+                    </GridViewColumn.CellTemplate>
+                </GridViewColumn>
+
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center"
+                    Name="SpButtons">
+            <Button Content="Выбрать" Margin="10" Width="100" Height="30" Background="LightGreen" Click="BtnSelect_Click"/>
+            <Button Content="Отмена" Margin="10" Width="100" Height="30" Background="LightCoral" Click="BtnCancel_Click"/>
+        </StackPanel>
+
+    </StackPanel>
+</Window>

@@ -31,6 +31,6 @@ public class PersonConfiguration : IEntityTypeConfiguration<Person>
             .IsRequired();
 
         // начальная инициализация таблицы
-        builder.HasData(Factory.GetPeople(10, Factory.GetPerson));
+        builder.HasData(Factory.GetPeople(20, Factory.GetPerson));
     } // Configure
 }

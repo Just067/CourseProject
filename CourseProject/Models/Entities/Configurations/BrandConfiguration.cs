@@ -28,7 +28,7 @@ public class BrandConfiguration : IEntityTypeConfiguration<Brand>
             new() { Id = 7,  Name = "Mercedes-Benz"},
             new() { Id = 8,  Name = "Ford"},
             new() { Id = 9,  Name = "Volkswagen"},
-            new() { Id = 10,  Name = "Audi"}
+            new() { Id = 10,  Name = "Audi"},
         ];
         builder.HasData(brands);
     } // Configure

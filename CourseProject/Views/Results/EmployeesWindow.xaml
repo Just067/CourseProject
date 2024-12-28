@@ -4,26 +4,201 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="EmployeesWindow" SizeToContent="WidthAndHeight"
+        Title="EmployeesWindow"
+        SizeToContent="WidthAndHeight"
+        FontSize="15"
         WindowStartupLocation="CenterScreen">
 
-    <StackPanel Margin="10">
-        <TextBlock Padding="5" FontSize="12">
-            Таблица <Underline>Employees</Underline>
-        </TextBlock>
-        <DataGrid AutoGenerateColumns="False"
-                  IsReadOnly="True"
-                  Name ="DgEmployees">
+    <Grid>
+        <Grid.RowDefinitions>
+            <!-- Меню -->
+            <RowDefinition Height="30"/>
 
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="Ид." Binding="{Binding Id}"/>
-                <DataGridTextColumn Header="Фамилия" Binding="{Binding Person.Surname}"/>
-                <DataGridTextColumn Header="Имя" Binding="{Binding Person.Name}"/>
-                <DataGridTextColumn Header="Отчество" Binding="{Binding Person.Patronymic}"/>
-                <DataGridTextColumn Header="Специальность" Binding="{Binding Specialization.Name}"/>
-                <DataGridTextColumn Header="Разряд" Binding="{Binding Category}"/>
-                <DataGridTextColumn Header="Стаж" Binding="{Binding Experience}"/>
-            </DataGrid.Columns>
-        </DataGrid>
-    </StackPanel>
+            <!-- Панель инструментов -->
+            <RowDefinition Height="60"/>
+
+            <!-- Рабочая область -->
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Menu Grid.Row ="0" FontFamily="Verdana">
+            <MenuItem Header="_Файл">
+
+                <MenuItem Header="_Добавить работника"
+                          Command="{Binding AddEmployeeCommand}">
+                </MenuItem>
+
+                <MenuItem Header="_Редактировать работника"
+                          Command="{Binding EditEmployeeCommand}">
+                </MenuItem>
+
+                <MenuItem Header="Вы_ход"
+                          Command="{Binding ExitCommand}">
+                </MenuItem>
+
+            </MenuItem>
+        </Menu>
+
+        <ToolBarTray Grid.Row ="1" Background="White">
+            <ToolBar 
+                     FontFamily="Verdana"
+                     Background="White">
+
+                <Button Margin="5, 0"
+                        Padding="5"
+                        Command="{Binding AddEmployeeCommand}">
+                    <Image Source="/Assets/icons8-employee-32.png"></Image>
+                </Button>
+
+                <Separator/>
+
+                <Button Margin="5 0"
+                        Padding="5"
+                        Command="{Binding EditEmployeeCommand}">
+                    <Image Source="/Assets/icons8-employee-32-icon.png"></Image>
+                </Button>
+
+                <Separator/>
+
+                <Button Margin="5 0"
+                        Padding="5"
+                        Command="{Binding DeleteEmployeeCommand}">
+                    <Image Source="/Assets/icons8-dismissal-32.png"></Image>
+                </Button>
+
+                <Separator/>
+
+                <Button Margin="5 0"
+                        Padding="5"
+                        Command="{Binding AddSpecializationCommand}">
+                    <Image Source="/Assets/icons8-expert-32.png"></Image>
+                </Button>
+
+                <Separator/>
+
+                <Button Margin="5 0"
+                        Command="{Binding ExitCommand}"
+                        ToolTip="Завершение приложения">
+                    <Image Source="/Assets/icons8-exit-32.png"></Image>
+                </Button>
+
+
+
+            </ToolBar>
+        </ToolBarTray>
+
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100*"/>
+                <ColumnDefinition Width="300*"/>
+            </Grid.ColumnDefinitions>
+            <!-- Поле вывода результатов запроса -->
+            <GroupBox Grid.Column="1"
+                      Header="Результаты"
+                      Margin="5"
+                      VerticalAlignment="Stretch"
+                      BorderThickness="1" BorderBrush="Black">
+                <StackPanel Orientation="Vertical">
+
+                    <WrapPanel Orientation="Horizontal">
+
+                        <StackPanel Margin="10">
+                            <TextBlock Padding="5" FontSize="14">
+                                Работники
+                            </TextBlock>
+                            <DataGrid AutoGenerateColumns="False"
+                                      IsReadOnly="True"
+                                      Name ="DgEmployees">
+
+
+                                <DataGrid.ContextMenu>
+                                    <ContextMenu>
+                                        <MenuItem Header="Добавить" Command="{Binding AddEmployeeCommand}">
+                                            <MenuItem.Icon>
+                                                <Image Source="/Assets/icons8-employee-32.png"/>
+                                            </MenuItem.Icon>
+                                        </MenuItem>
+                                        <MenuItem Header="Изменить" Command="{Binding EditEmployeeCommand}">
+                                            <MenuItem.Icon>
+                                                <Image Source="/Assets/icons8-employee-32-icon.png"/>
+                                            </MenuItem.Icon>
+                                        </MenuItem>
+                                        <MenuItem Header="Уволить" Command="{Binding DeleteEmployeeCommand}">
+                                            <MenuItem.Icon>
+                                                <Image Source="/Assets/icons8-dismissal-32.png"/>
+                                            </MenuItem.Icon>
+                                        </MenuItem>
+                                    </ContextMenu>
+                                </DataGrid.ContextMenu>
+
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Header="№ п/п" Binding="{Binding Id}"/>
+                                    <DataGridTextColumn Header="Фамилия" Binding="{Binding Person.Surname}"/>
+                                    <DataGridTextColumn Header="Имя" Binding="{Binding Person.Name}"/>
+                                    <DataGridTextColumn Header="Отчество" Binding="{Binding Person.Patronymic}"/>
+                                    <DataGridTextColumn Header="Специальность" Binding="{Binding Specialization.Name}"/>
+                                    <DataGridTextColumn Header="Разряд" Binding="{Binding Category}"/>
+                                    <DataGridTextColumn Header="Стаж" Binding="{Binding Experience}"/>
+                                    <DataGridTemplateColumn Header="Занят">
+                                        <DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <CheckBox IsChecked="{Binding IsEmployed}"
+                                                          VerticalAlignment="Center"
+                                                          IsEnabled="False"
+                                                          HorizontalAlignment="Center"/>
+                                            </DataTemplate>
+                                        </DataGridTemplateColumn.CellTemplate>
+                                    </DataGridTemplateColumn>
+                                </DataGrid.Columns>
+
+                                <DataGrid.RowStyle>
+                                    <Style TargetType="DataGridRow">
+                                        <EventSetter Event="MouseDoubleClick" Handler="EmployeesDoubleClick"/>
+                                    </Style>
+                                </DataGrid.RowStyle>
+
+                            </DataGrid>
+
+                        </StackPanel>
+                    </WrapPanel>
+                </StackPanel>
+
+            </GroupBox>
+
+            <GroupBox Grid.Column="0"                    
+                      Header="Меню"
+                      Margin="5"
+                      VerticalAlignment="Stretch"
+                      BorderThickness="1" BorderBrush="Black">
+                <StackPanel  Orientation="Vertical" VerticalAlignment ="Center">
+                    <Button Name="BtnAddEmployee" Margin="10"  FontWeight="Bold" Background="LightCyan"
+                            Command="{Binding AddEmployeeCommand}">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/Assets/icons8-employee-32.png"/>
+                            <TextBlock Text="Добавить работника" Margin="5 0" VerticalAlignment="Center"/>
+                        </StackPanel>
+                    </Button>
+
+                    <Button Name="BtnEditEmployee" Margin="10"  FontWeight="Bold" Background="Aquamarine"
+                            Command="{Binding EditEmployeeCommand}">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/Assets/icons8-employee-32-icon.png"/>
+                            <TextBlock Text="Редактировать данные работника" Margin="5 0" VerticalAlignment="Center"/>
+                        </StackPanel>
+                    </Button>
+
+                    <Button Name="BtnDeleteEmployee" Margin="10"  FontWeight="Bold" Background="LightCoral"
+                            Command="{Binding DeleteEmployeeCommand}">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/Assets/icons8-dismissal-32.png"/>
+                            <TextBlock Text="Уволить работника" Margin="5 0" VerticalAlignment="Center"/>
+                        </StackPanel>
+                    </Button>
+
+                </StackPanel>
+            </GroupBox>
+
+        </Grid>
+
+    </Grid>
 </Window>

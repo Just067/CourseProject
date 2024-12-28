@@ -1,7 +1,6 @@
 ﻿using CourseProject.Infrastructure.Factories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using Microsoft.EntityFrameworkCore.Metadata.Conventions;
 
 namespace CourseProject.Models.Entities.Configurations;
 

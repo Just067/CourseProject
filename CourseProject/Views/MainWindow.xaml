@@ -20,8 +20,6 @@
             <!-- Рабочая область -->
             <RowDefinition Height="*"/>
 
-            <!-- Строка состояния -->
-            <RowDefinition Height="20"/>
         </Grid.RowDefinitions>
 
         <Menu Grid.Row ="0" FontFamily="Verdana">
@@ -29,6 +27,38 @@
                 <MenuItem Header="Вы_ход"
                           Command="{Binding ExitCommand}">
                 </MenuItem>
+            </MenuItem>
+
+            <MenuItem Header="_Запросы">
+
+                <MenuItem Header="Запрос 1"
+                          Command="{Binding Query01Command}">
+                </MenuItem>
+
+                <MenuItem Header="Запрос 2"
+                          Command="{Binding Query02Command}">
+                </MenuItem>
+
+                <MenuItem Header="Запрос 3"
+                          Command="{Binding Query03Command}">
+                </MenuItem>
+
+                <MenuItem Header="Запрос 4"
+                          Command="{Binding Query04Command}">
+                </MenuItem>
+
+                <MenuItem Header="Запрос 5"
+                          Command="{Binding Query05Command}">
+                </MenuItem>
+
+                <MenuItem Header="Запрос 6"
+                          Command="{Binding Query06Command}">
+                </MenuItem>
+
+                <MenuItem Header="Запрос 7"
+                          Command="{Binding Query07Command}">
+                </MenuItem>
+
             </MenuItem>
         </Menu>
 
@@ -39,6 +69,7 @@
 
                 <Button Margin="5, 0"
                         Padding="5"
+                        ToolTip="Открыть окно управления работника"
                         Command="{Binding EmployeesCommand}">
                     <Image Source="/Assets/icons8-employees-32.png"></Image>
                 </Button>
@@ -46,14 +77,27 @@
                 <Separator/>
 
                 <Button Margin="5 0"
-                        Padding="5">
+                        Padding="5"
+                        ToolTip="Добавить обращение"
+                        Command="{Binding AddVisitCommand}">
                     <Image Source="/Assets/icons8-добавить-32.png"></Image>
                 </Button>
 
                 <Separator/>
 
                 <Button Margin="5 0"
-                        Padding="5">
+                        Padding="5"
+                        ToolTip="Добавить автомобиль"
+                        Command="{Binding AddCarCommand}">
+                    <Image Source="/Assets/car_add.png"></Image>
+                </Button>
+
+                <Separator/>
+                
+                <Button Margin="5 0"
+                        Padding="5"
+                        ToolTip="Редактировать автомобиль"
+                        Command="{Binding EditCarCommand}">
                     <Image Source="/Assets/icons8-edit-32.png"></Image>
                 </Button>
 
@@ -61,6 +105,45 @@
 
                 <Button Margin="5 0"
                         Padding="5"
+                        ToolTip="Добавить клиента"
+                        Command="{Binding AddClientCommand}">
+                    <Image Source="/Assets/icons8-add-male-user-group-32.png"></Image>
+                </Button>
+
+                <Separator/>
+
+                <Button Margin="5 0"
+                        Padding="5"
+                        ToolTip="Редактировать клиента"
+                        Command="{Binding EditClientCommand}">
+                    <Image Source="/Assets/icons8-change-32.png"></Image>
+                </Button>
+
+                <Separator/>
+
+
+                <Button Margin="5 0"
+                        Padding="5"
+                        ToolTip="Справка о количестве автомобилей в ремонте"
+                        Command="{Binding SaveCarsInRepairReport}">
+                    <Image Source="/Assets/icons8-cars-32.png"></Image>
+                </Button>
+
+                <Separator/>
+
+                <Button Margin="5 0"
+                        Padding="5"
+                        ToolTip="Справка о количестве свободных рабочих"
+                        Command="{Binding SaveFreeWorkersReport}">
+                    <Image Source="/Assets/icons8-workers-32.png"></Image>
+                </Button>
+
+
+                <Separator/>
+
+                <Button Margin="5 0"
+                        Padding="5"
+                        ToolTip="Добавить цвет"
                         Command="{Binding AddColorCommand}">
                     <Image Source="/Assets/icons8-color-32.png"></Image>
                 </Button>
@@ -69,6 +152,7 @@
 
                 <Button Margin="5 0"
                         Padding="5"
+                        ToolTip="Добавить марку автомобилей"
                         Command="{Binding AddBrandCommand}">
                     <Image Source="/Assets/icons8-car-32.png"></Image>
                 </Button>
@@ -76,7 +160,7 @@
                 <Separator/>
 
                 <Button Margin="5 0"
-                        Command="{Binding AddCarCommand}"
+                        Command="{Binding SaveMonthReport}"
                         ToolTip="Послать месячный отсчет">
                     <Image Source="/Assets/icons8-document-32.png"></Image>
                 </Button>
@@ -94,12 +178,12 @@
 
         <Grid Grid.Row="2">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="300*"/>
                 <ColumnDefinition Width="100*"/>
+                <ColumnDefinition Width="400*"/>
             </Grid.ColumnDefinitions>
             <!-- Поле вывода результатов запроса -->
-            <GroupBox Grid.Column="0"
-                      Header="Результаты"
+            <GroupBox Grid.Column="1"
+                      Header="Данные"
                       Margin="5"
                       VerticalAlignment="Stretch"
                       BorderThickness="1" BorderBrush="Black">
@@ -108,15 +192,6 @@
                     <WrapPanel Orientation="Horizontal">
 
                         <StackPanel Margin="10">
-                            <StackPanel Orientation="Horizontal">
-                                <ComboBox Margin="5" Width="200" Name="CbxClients">
-                                    <ComboBoxItem Content="Фамилия" />
-                                    <ComboBoxItem Content="Имя" />
-                                    <ComboBoxItem Content="Отчество" />
-                                </ComboBox>
-                                <TextBox Margin="5" Width="200" Name="TxbClient">
-                                </TextBox>
-                            </StackPanel>
                             <TextBlock Padding="5" FontSize="14">
                                 Клиенты
                             </TextBlock>
@@ -124,11 +199,29 @@
                            IsReadOnly="True"
                            Name ="DgClients">
 
+                                <DataGrid.ContextMenu>
+                                    <ContextMenu>
+                                        <MenuItem Header="Добавить" Command="{Binding AddClientCommand}">
+                                            <MenuItem.Icon>
+                                                <Image Source="/Assets/icons8-add-male-user-group-32.png"/>
+                                            </MenuItem.Icon>
+                                        </MenuItem>
+                                        <MenuItem Header="Изменить" Command="{Binding EditClientCommand}">
+                                            <MenuItem.Icon>
+                                                <Image Source="/Assets/icons8-change-32.png"/>
+                                            </MenuItem.Icon>
+                                        </MenuItem>
+                                    </ContextMenu>
+                                </DataGrid.ContextMenu>
+
                                 <DataGrid.Columns>
                                     <DataGridTextColumn Header="№ п/п" Binding="{Binding Id}"/>
                                     <DataGridTextColumn Header="Фамилия" Binding="{Binding Person.Surname}"/>
                                     <DataGridTextColumn Header="Имя" Binding="{Binding Person.Name}"/>
                                     <DataGridTextColumn Header="Отчество" Binding="{Binding Person.Patronymic}"/>
+                                    <!--<DataGridTextColumn Header="День рождения" Binding="{Binding BirthDate, StringFormat={}{0:dd-MM-yyyy}}"/>
+                                    <DataGridTextColumn Header="Паспорт" Binding="{Binding Passport}"/>
+                                    <DataGridTextColumn Header="Адрес" Binding="{Binding Registration}"/>-->
                                 </DataGrid.Columns>
 
                                 <DataGrid.RowStyle>
@@ -146,8 +239,24 @@
                                 Автомобили
                             </TextBlock>
                             <DataGrid AutoGenerateColumns="False"
-                           IsReadOnly="True"
-                           Name ="DgCars">
+                                IsReadOnly="True"
+                                Name ="DgCars">
+
+
+                                <DataGrid.ContextMenu>
+                                    <ContextMenu>
+                                        <MenuItem Header="Добавить" Command="{Binding AddCarCommand}">
+                                            <MenuItem.Icon>
+                                                <Image Source="/Assets/car_add.png"/>
+                                            </MenuItem.Icon>
+                                        </MenuItem>
+                                        <MenuItem Header="Изменить" Command="{Binding EditCarCommand}">
+                                            <MenuItem.Icon>
+                                                <Image Source="/Assets/icons8-edit-32.png"/>
+                                            </MenuItem.Icon>
+                                        </MenuItem>
+                                    </ContextMenu>
+                                </DataGrid.ContextMenu>
 
                                 <DataGrid.Columns>
                                     <DataGridTextColumn Header="№ п/п" Binding="{Binding Id}"/>
@@ -190,8 +299,9 @@
                                     <DataGridTemplateColumn Header="Оплачен">
                                         <DataGridTemplateColumn.CellTemplate>
                                             <DataTemplate>
-                                                <CheckBox IsChecked="{Binding IsPaid}" 
+                                                <CheckBox IsChecked="{Binding IsPaid}"
                                                           VerticalAlignment="Center"
+                                                          IsEnabled="False"
                                                           HorizontalAlignment="Center"/>
                                             </DataTemplate>
                                         </DataGridTemplateColumn.CellTemplate>
@@ -206,17 +316,34 @@
 
             </GroupBox>
 
-            <GroupBox Grid.Column="1"                    
+            <GroupBox Grid.Column="0"                    
                       Header="Меню"
                       Margin="5"
                       VerticalAlignment="Stretch"
+                      HorizontalAlignment="Stretch"
                       BorderThickness="1" BorderBrush="Black">
-                <StackPanel  Orientation="Vertical" VerticalAlignment ="Center">
+                <StackPanel  Orientation="Vertical" VerticalAlignment ="Center" Margin="5">
                     <Button Name="BtnAddVisit" Margin="10"  FontWeight="Bold" Background="LightPink"
-                            Command="{Binding VisitCommand}">
+                            Command="{Binding AddVisitCommand}">
                         <StackPanel Orientation="Horizontal">
                             <Image Source="/Assets/icons8-добавить-32.png"/>
                             <TextBlock Text="Добавить обращение" Margin="5 0" VerticalAlignment="Center"/>
+                        </StackPanel>
+                    </Button>
+
+                    <Button Name="BtnAddClient" Margin="10"  FontWeight="Bold" Background="Olive"
+                            Command="{Binding AddClientCommand}">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/Assets/icons8-add-male-user-group-32.png"/>
+                            <TextBlock Text="Добавить клиента" Margin="5 0" VerticalAlignment="Center"/>
+                        </StackPanel>
+                    </Button>
+
+                    <Button Name="BtnEditClient" Margin="10"  FontWeight="Bold" Background="Aquamarine"
+                            Command="{Binding EditClientCommand}">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/Assets/icons8-change-32.png"/>
+                            <TextBlock Text="Редактировать клиента" Margin="5 0" VerticalAlignment="Center"/>
                         </StackPanel>
                     </Button>
 
@@ -228,14 +355,6 @@
                         </StackPanel>
                     </Button>
 
-                    <Button Name="BtnEditClient" Margin="10"  FontWeight="Bold" Background="Aquamarine"
-                            Command="{Binding EditClientCommand}">
-                        <StackPanel Orientation="Horizontal">
-                            <Image Source="/Assets/icons8-edit-32.png"/>
-                            <TextBlock Text="Редактировать клиента" Margin="5 0" VerticalAlignment="Center"/>
-                        </StackPanel>
-                    </Button>
-
                     <Button Name="BtnEditCar" Margin="10"  FontWeight="Bold" Background="MediumSlateBlue"
                             Command="{Binding EditCarCommand}">
                         <StackPanel Orientation="Horizontal">
@@ -244,7 +363,26 @@
                         </StackPanel>
                     </Button>
 
-                    <Button Name="BtnReport" Margin="10"  FontWeight="Bold" Background="LightYellow">
+                    <Button Name="BtnReportCarsInRepair" Margin="5"  FontWeight="Bold" Background="BurlyWood"
+                            Command="{Binding SaveCarsInRepairReport}">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/Assets/icons8-cars-32.png"/>
+                            <TextBlock Text="Справка об автомобилях в ремонте" Margin="5 0" VerticalAlignment="Center"/>
+                        </StackPanel>
+                    </Button>
+
+                    <Button Name="BtnReportFreeWorkers" Margin="5"  
+                            FontWeight="Bold" 
+                            Background="Cyan"
+                            Command="{Binding SaveFreeWorkersReport}">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/Assets/icons8-workers-32.png"/>
+                            <TextBlock Text="Справка о свободных работниках" Margin="5 0" VerticalAlignment="Center"/>
+                        </StackPanel>
+                    </Button>
+
+                    <Button Name="BtnReport" Margin="10"  FontWeight="Bold" Background="LightYellow"
+                            Command="{Binding SaveMonthReport}">
                         <StackPanel Orientation="Horizontal">
                             <Image Source="/Assets/icons8-document-32.png"/>
                             <TextBlock Text="Месячный отсчет" Margin="5 0" VerticalAlignment="Center"/>
@@ -255,10 +393,5 @@
             </GroupBox>
             
         </Grid>
-       
-
-        <StatusBar Grid.Row="3">
-            <TextBlock Name="TblStatus" />
-        </StatusBar>
     </Grid>
 </Window>

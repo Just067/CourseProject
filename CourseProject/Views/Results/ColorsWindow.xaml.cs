@@ -12,7 +12,6 @@ public partial class ColorsWindow : Window
     {
         InitializeComponent();
 
-        LvColors.ItemsSource = null;
         LvColors.ItemsSource = colors;
         LvColors.SelectedIndex = 0;
     } // ColorsWindow
@@ -21,6 +20,7 @@ public partial class ColorsWindow : Window
 
     private void BtnSelect_Click(object sender, EventArgs e)
     {
+
         DialogResult = true;
         Close();
 

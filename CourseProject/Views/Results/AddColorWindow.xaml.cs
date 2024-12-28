@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using CourseProject.Models.Entities;
 
 namespace CourseProject.Views.Results;
 
@@ -7,9 +8,11 @@ namespace CourseProject.Views.Results;
 /// </summary>
 public partial class AddColorWindow : Window
 {
-    public AddColorWindow()
+    public AddColorWindow(List<Color> colors)
     {
         InitializeComponent();
+
+        LvColors.ItemsSource = colors;
 
         TbxColor.Focus();
 
@@ -20,6 +23,12 @@ public partial class AddColorWindow : Window
 
     private void BtnSelect_Click(object sender, EventArgs e)
     {
+        if (string.IsNullOrWhiteSpace(Color))
+        {
+            MessageBox.Show("Цвет не указан!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+            return;
+        }
+
         DialogResult = true;
         Close();
 

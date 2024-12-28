@@ -16,10 +16,11 @@ public partial class PeopleWindow : Window
         LvPeople.SelectedIndex = 0;
     } // PeopleWindow
 
-    public Person Person => (Person)LvPeople.SelectedItems[0]!;
+    public Person Person => (Person)LvPeople.SelectedItem;
 
     private void BtnSelect_Click(object sender, EventArgs e)
     {
+
         DialogResult = true;
         Close();
 

@@ -1,0 +1,71 @@
+﻿<Window x:Class="CourseProject.Views.Results.AddSpecializationWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CourseProject.Views.Results"
+        mc:Ignorable="d"
+        SizeToContent="WidthAndHeight"
+        FontSize="15"
+        WindowStartupLocation="CenterScreen">
+
+    <StackPanel>
+
+        <StackPanel Orientation="Horizontal" Margin="5">
+            <StackPanel VerticalAlignment="Center"
+                        HorizontalAlignment="Center">
+                <Label FontSize="20" FontWeight="Bold">Добавить специальность:</Label>
+                <TextBox Name="TbxSpecialization"
+                         MinHeight="30" 
+                         MinWidth="200" 
+                         Margin="5" 
+                         VerticalContentAlignment="Center"
+                         FontSize="16"/>
+
+            </StackPanel>
+
+            <StackPanel 
+                Margin="10" VerticalAlignment="Top"
+                HorizontalAlignment="Center">
+                <TextBlock Padding="5">
+                    Специальности
+                </TextBlock>
+                <ListView
+                    Name ="LvSpecializations">
+
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="№ п/п">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock 
+                                            Padding="5"
+                                            Text="{Binding Id, StringFormat={}{0:n0}}" 
+                                            TextAlignment="Right" />
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+
+                            <GridViewColumn 
+                                Width="160"
+                                Header="Специальность">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock 
+                                            Padding="5 0"
+                                            Text="{Binding Name}" />
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+            </StackPanel>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button Content="Добавить" Margin="10" Width="150" Height="50" Background="LightGreen" Click="BtnSelect_Click"/>
+            <Button Content="Отмена" Margin="10" Width="150" Height="50" Background="LightCoral" Click="BtnCancel_Click"/>
+        </StackPanel>
+    </StackPanel>
+</Window>

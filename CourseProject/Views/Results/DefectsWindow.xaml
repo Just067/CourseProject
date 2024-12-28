@@ -1,0 +1,54 @@
+﻿<Window x:Class="CourseProject.Views.Results.DefectsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CourseProject.Views.Results"
+        mc:Ignorable="d"
+        Title="DefectsWindow" SizeToContent="WidthAndHeight"
+        WindowStartupLocation="CenterScreen"
+        MinWidth="400"
+        FontSize="14">
+
+    <StackPanel Margin="10">
+        <TextBlock Padding="5">
+            Неисправности
+        </TextBlock>
+        <ListView
+            Name ="LvDefects">
+
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="№ п/п">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock 
+                                    Padding="5"
+                                    Text="{Binding Id, StringFormat={}{0:n0}}" 
+                                    TextAlignment="Right"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+
+                    <GridViewColumn 
+                        Width="300"
+                        Header="Неисправность автомобиля">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock 
+                                    Padding="5"
+                                    Text="{Binding Name}" />
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center"
+                    Name="SpButtons">
+            <Button Content="Выбрать" Margin="10" Width="150" Height="50" Background="LightGreen" Click="BtnSelect_Click"/>
+            <Button Content="Отмена" Margin="10" Width="150" Height="50" Background="LightCoral" Click="BtnCancel_Click"/>
+        </StackPanel>
+    </StackPanel>
+</Window>

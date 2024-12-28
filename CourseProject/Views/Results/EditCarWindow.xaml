@@ -85,9 +85,9 @@
                             Цвет: 
                         </Label>
 
-                        <TextBox Name="TbColor"
-                                 Padding="3"
-                                 Text="{Binding Color.Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                        <TextBlock Name="TbColor"
+                                   Padding="3"
+                                   Text="{Binding Color.Name}" />
                     </StackPanel>
 
                     <StackPanel Orientation="Horizontal" Margin="5">

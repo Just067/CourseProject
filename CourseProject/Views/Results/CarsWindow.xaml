@@ -1,0 +1,117 @@
+﻿<Window x:Class="CourseProject.Views.Results.CarsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CourseProject.Views.Results"
+        mc:Ignorable="d"
+        Title="CarsWindow"
+        SizeToContent="WidthAndHeight"
+        WindowStartupLocation="CenterScreen"
+        MinHeight="200"
+        MinWidth="300">
+    
+    <ListView
+        Name ="LvCars">
+
+        <ListView.View>
+            <GridView>
+                <GridViewColumn Header="№ п/п">
+                    <GridViewColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock 
+                                Padding="5"
+                                Text="{Binding Id, StringFormat={}{0:n0}}" 
+                                TextAlignment="Right" />
+                        </DataTemplate>
+                    </GridViewColumn.CellTemplate>
+                </GridViewColumn>
+
+                <GridViewColumn 
+                    Width="160"
+                    Header="Фамилия владельца">
+                    <GridViewColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock 
+                                Padding="5 0"
+                                Text="{Binding Owner.Surname}" />
+                        </DataTemplate>
+                    </GridViewColumn.CellTemplate>
+                </GridViewColumn>
+
+                <GridViewColumn 
+                    Width="160"
+                    Header="Имя владельца">
+                    <GridViewColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock 
+                                Padding="5 0"
+                                Text="{Binding Owner.Name}" />
+                        </DataTemplate>
+                    </GridViewColumn.CellTemplate>
+                </GridViewColumn>
+
+                <GridViewColumn 
+                    Width="160"
+                    Header="Отчество владельца">
+                    <GridViewColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock 
+                                Padding="5 0"
+                                Text="{Binding Owner.Patronymic}" />
+                        </DataTemplate>
+                    </GridViewColumn.CellTemplate>
+                </GridViewColumn>
+
+                <GridViewColumn 
+                    Width="150"
+                    Header="Марка">
+                    <GridViewColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock 
+                                Padding="5 0"
+                                Text="{Binding Brand.Name}" />
+                        </DataTemplate>
+                    </GridViewColumn.CellTemplate>
+                </GridViewColumn>
+
+                <GridViewColumn 
+                    Width="150"
+                    Header="Цвет">
+                    <GridViewColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock 
+                                Padding="5 0"
+                                Text="{Binding Color.Name}" />
+                        </DataTemplate>
+                    </GridViewColumn.CellTemplate>
+                </GridViewColumn>
+
+                <GridViewColumn 
+                    Width="160"
+                    Header="Государственный номер">
+                    <GridViewColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock 
+                                Padding="5 0"
+                                Text="{Binding StateNumber}" />
+                        </DataTemplate>
+                    </GridViewColumn.CellTemplate>
+                </GridViewColumn>
+
+                <GridViewColumn 
+                    Width="100"
+                    Header="Год выпуска">
+                    <GridViewColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock 
+                                TextAlignment="Right"
+                                Padding="5 0"
+                                Text="{Binding ReleaseYear}" />
+                        </DataTemplate>
+                    </GridViewColumn.CellTemplate>
+                </GridViewColumn>
+            </GridView>
+        </ListView.View>
+    </ListView>
+</Window>

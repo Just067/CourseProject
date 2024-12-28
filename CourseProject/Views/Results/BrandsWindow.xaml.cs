@@ -16,7 +16,7 @@ public partial class BrandsWindow : Window
         LvBrands.SelectedIndex = 0;
     } // BrandsWindow
 
-    public Brand Brand => (Brand)LvBrands.SelectedItems[0]!;
+    public Brand Brand => (Brand)LvBrands.SelectedItem;
 
     private void BtnSelect_Click(object sender, EventArgs e)
     {

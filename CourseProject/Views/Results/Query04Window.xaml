@@ -1,0 +1,82 @@
+﻿<Window x:Class="CourseProject.Views.Results.Query04Window"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CourseProject.Views.Results"
+        mc:Ignorable="d"
+        Title="Query04Window"
+        SizeToContent="WidthAndHeight"
+        WindowStartupLocation="CenterScreen"
+        MinHeight="200"
+        MinWidth="300">
+
+    <ListView
+       Name ="LvQuery04">
+
+        <ListView.View>
+            <GridView>
+                <GridViewColumn Header="№ п/п">
+                    <GridViewColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock 
+                               Padding="5"
+                               Text="{Binding Id, StringFormat={}{0:n0}}" 
+                               TextAlignment="Right" />
+                        </DataTemplate>
+                    </GridViewColumn.CellTemplate>
+                </GridViewColumn>
+
+                <GridViewColumn 
+                   Width="160"
+                   Header="Фамилия работника">
+                    <GridViewColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock 
+                               Padding="5 0"
+                               Text="{Binding Person.Surname}" />
+                        </DataTemplate>
+                    </GridViewColumn.CellTemplate>
+                </GridViewColumn>
+
+                <GridViewColumn 
+                   Width="160"
+                   Header="Имя работника">
+                    <GridViewColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock 
+                               Padding="5 0"
+                               Text="{Binding Person.Name}" />
+                        </DataTemplate>
+                    </GridViewColumn.CellTemplate>
+                </GridViewColumn>
+
+                <GridViewColumn 
+                   Width="160"
+                   Header="Отчество работника">
+                    <GridViewColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock 
+                               Padding="5 0"
+                               Text="{Binding Person.Patronymic}" />
+                        </DataTemplate>
+                    </GridViewColumn.CellTemplate>
+                </GridViewColumn>
+
+                <GridViewColumn 
+                   Width="200"
+                   Header="Дата устранения неисправности">
+                    <GridViewColumn.CellTemplate>
+                        <DataTemplate>
+                            <DatePickerTextBox
+                                IsReadOnly="True"
+                                Padding="5 0"
+                                Text="{Binding DateOfIssue, StringFormat={}{0:dd-MM-yyyy}}" />
+                        </DataTemplate>
+                    </GridViewColumn.CellTemplate>
+                </GridViewColumn>
+
+            </GridView>
+        </ListView.View>
+    </ListView>
+</Window>

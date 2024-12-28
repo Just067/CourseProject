@@ -6,12 +6,12 @@
         xmlns:local="clr-namespace:CourseProject.Views.Results"
         mc:Ignorable="d"
         Title="PeopleWindow" SizeToContent="WidthAndHeight"
-        WindowStartupLocation="CenterScreen">
+        WindowStartupLocation="CenterScreen"
+        Icon="/Assets/icons8-crowd-32.png"
+        MinHeight="200"
+        MinWidth="300">
 
-    <StackPanel Margin="10">
-        <TextBlock Padding="5" FontSize="12">
-            Владельцы
-        </TextBlock>
+    <StackPanel Margin="10" VerticalAlignment="Center">
         <ListView
             Name ="LvPeople">
 
@@ -63,7 +63,8 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <StackPanel Orientation="Horizontal">
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center"
+                    Name="SpButtons">
             <Button Content="Выбрать" Margin="10" Width="100" Height="30" Background="LightGreen" Click="BtnSelect_Click"/>
             <Button Content="Отмена" Margin="10" Width="100" Height="30" Background="LightCoral" Click="BtnCancel_Click"/>
         </StackPanel>

@@ -20,7 +20,7 @@ public static partial class Factory
             Category = Utils.GetRandom(1, 5),
             Experience = Utils.GetRandom(1, 30),
             PathPhoto = GetRandomPersonImage(),
-            IsEmployed = false
+            IsEmployed = Utils.GetRandom(0, 1) == 1
         };
     }
 }

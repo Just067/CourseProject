@@ -5,21 +5,67 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CourseProject.Views.Results"
         mc:Ignorable="d"
-        Title="AddBrandWindow" Height="450" Width="800"
+        Title="AddBrandWindow"
+        FontSize="15"
+        SizeToContent="WidthAndHeight"
         WindowStartupLocation="CenterScreen">
-    <StackPanel VerticalAlignment="Center"
+    <StackPanel>
+
+        <StackPanel Orientation="Horizontal" Margin="5">
+            <StackPanel VerticalAlignment="Center"
+                        HorizontalAlignment="Center">
+                <Label FontSize="20" FontWeight="Bold">Добавить марку:</Label>
+                <TextBox Name="TbxBrand"
+                         MinHeight="30" 
+                         MinWidth="200" 
+                         Margin="5" 
+                         VerticalContentAlignment="Center"
+                         FontSize="16"/>
+
+            </StackPanel>
+
+            <StackPanel 
+                Margin="10" VerticalAlignment="Top"
                 HorizontalAlignment="Center">
-        <Label FontSize="20" FontWeight="Bold">Добавить марку автомобиля:</Label>
-        <TextBox Name="TbxBrand"
-                 MinHeight="30" 
-                 MinWidth="200" 
-                 Margin="10" 
-                 VerticalContentAlignment="Center"
-                 FontSize="16"/>
-        <StackPanel Orientation="Horizontal">
+                <TextBlock Padding="5">
+                    Марки
+                </TextBlock>
+                <ListView
+                    Name ="LvBrands">
+
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="№ п/п" Width="50">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock 
+                                            Padding="5"
+                                            Text="{Binding Id, StringFormat={}{0:n0}}" 
+                                            TextAlignment="Right" />
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+
+                            <GridViewColumn 
+                                Width="150"
+                                Header="Марка">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock 
+                                            Padding="5 0"
+                                            Text="{Binding Name}" />
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+            </StackPanel>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
             <Button Content="Добавить" Margin="10" Width="150" Height="50" Background="LightGreen" Click="BtnSelect_Click"/>
             <Button Content="Отмена" Margin="10" Width="150" Height="50" Background="LightCoral" Click="BtnCancel_Click"/>
         </StackPanel>
-
     </StackPanel>
 </Window>

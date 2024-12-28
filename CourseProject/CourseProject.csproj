@@ -23,20 +23,29 @@
     <None Remove="Assets\Cars\car_012.png" />
     <None Remove="Assets\Cars\car_013.png" />
     <None Remove="Assets\car_add.png" />
-    <None Remove="Assets\Clients\man_001.jpg" />
-    <None Remove="Assets\Clients\man_002.jpg" />
-    <None Remove="Assets\Clients\man_003.jpg" />
-    <None Remove="Assets\Clients\man_004.jpg" />
-    <None Remove="Assets\Clients\man_005.jpg" />
-    <None Remove="Assets\Clients\man_006.jpg" />
-    <None Remove="Assets\Clients\man_007.jpg" />
-    <None Remove="Assets\Clients\man_008.jpg" />
-    <None Remove="Assets\Clients\man_009.jpg" />
-    <None Remove="Assets\Clients\man_010.jpg" />
-    <None Remove="Assets\Clients\man_011.jpg" />
-    <None Remove="Assets\Clients\man_012.jpg" />
-    <None Remove="Assets\Clients\man_013.jpg" />
-    <None Remove="Assets\Clients\man_014.jpg" />
+    <None Remove="Assets\icons8-add-male-user-group-32.png" />
+    <None Remove="Assets\icons8-cars-32.png" />
+    <None Remove="Assets\icons8-change-32.png" />
+    <None Remove="Assets\icons8-crowd-32.png" />
+    <None Remove="Assets\icons8-dismissal-32.png" />
+    <None Remove="Assets\icons8-employee-32-icon.png" />
+    <None Remove="Assets\icons8-employee-32.png" />
+    <None Remove="Assets\icons8-expert-32.png" />
+    <None Remove="Assets\icons8-workers-32.png" />
+    <None Remove="Assets\People\man_001.jpg" />
+    <None Remove="Assets\People\man_002.jpg" />
+    <None Remove="Assets\People\man_003.jpg" />
+    <None Remove="Assets\People\man_004.jpg" />
+    <None Remove="Assets\People\man_005.jpg" />
+    <None Remove="Assets\People\man_006.jpg" />
+    <None Remove="Assets\People\man_007.jpg" />
+    <None Remove="Assets\People\man_008.jpg" />
+    <None Remove="Assets\People\man_009.jpg" />
+    <None Remove="Assets\People\man_010.jpg" />
+    <None Remove="Assets\People\man_011.jpg" />
+    <None Remove="Assets\People\man_012.jpg" />
+    <None Remove="Assets\People\man_013.jpg" />
+    <None Remove="Assets\People\man_014.jpg" />
     <None Remove="Assets\database_black.png" />
     <None Remove="Assets\icons8-car-32.png" />
     <None Remove="Assets\icons8-color-32.png" />
@@ -45,11 +54,13 @@
     <None Remove="Assets\icons8-employees-32.png" />
     <None Remove="Assets\icons8-exit-32.png" />
     <None Remove="Assets\icons8-добавить-32.png" />
+    <None Remove="Views\Results\ClientsWindow.xaml.cs~RF1545c927.TMP" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore.Proxies" Version="9.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="9.0.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
   </ItemGroup>
 
   <ItemGroup>
@@ -67,20 +78,29 @@
     <Resource Include="Assets\Cars\car_012.png" />
     <Resource Include="Assets\Cars\car_013.png" />
     <Resource Include="Assets\car_add.png" />
-    <Resource Include="Assets\Clients\man_001.jpg" />
-    <Resource Include="Assets\Clients\man_002.jpg" />
-    <Resource Include="Assets\Clients\man_003.jpg" />
-    <Resource Include="Assets\Clients\man_004.jpg" />
-    <Resource Include="Assets\Clients\man_005.jpg" />
-    <Resource Include="Assets\Clients\man_006.jpg" />
-    <Resource Include="Assets\Clients\man_007.jpg" />
-    <Resource Include="Assets\Clients\man_008.jpg" />
-    <Resource Include="Assets\Clients\man_009.jpg" />
-    <Resource Include="Assets\Clients\man_010.jpg" />
-    <Resource Include="Assets\Clients\man_011.jpg" />
-    <Resource Include="Assets\Clients\man_012.jpg" />
-    <Resource Include="Assets\Clients\man_013.jpg" />
-    <Resource Include="Assets\Clients\man_014.jpg" />
+    <Resource Include="Assets\icons8-add-male-user-group-32.png" />
+    <Resource Include="Assets\icons8-cars-32.png" />
+    <Resource Include="Assets\icons8-change-32.png" />
+    <Resource Include="Assets\icons8-crowd-32.png" />
+    <Resource Include="Assets\icons8-dismissal-32.png" />
+    <Resource Include="Assets\icons8-employee-32-icon.png" />
+    <Resource Include="Assets\icons8-employee-32.png" />
+    <Resource Include="Assets\icons8-expert-32.png" />
+    <Resource Include="Assets\icons8-workers-32.png" />
+    <Resource Include="Assets\People\man_001.jpg" />
+    <Resource Include="Assets\People\man_002.jpg" />
+    <Resource Include="Assets\People\man_003.jpg" />
+    <Resource Include="Assets\People\man_004.jpg" />
+    <Resource Include="Assets\People\man_005.jpg" />
+    <Resource Include="Assets\People\man_006.jpg" />
+    <Resource Include="Assets\People\man_007.jpg" />
+    <Resource Include="Assets\People\man_008.jpg" />
+    <Resource Include="Assets\People\man_009.jpg" />
+    <Resource Include="Assets\People\man_010.jpg" />
+    <Resource Include="Assets\People\man_011.jpg" />
+    <Resource Include="Assets\People\man_012.jpg" />
+    <Resource Include="Assets\People\man_013.jpg" />
+    <Resource Include="Assets\People\man_014.jpg" />
     <Resource Include="Assets\database_black.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>

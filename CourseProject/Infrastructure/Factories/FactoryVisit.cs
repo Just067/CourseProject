@@ -20,6 +20,6 @@ public static partial class Factory
         EmployeeId = employeeId,
         DateOfApplication = DateTime.Now,
         DateOfIssue = DateTime.Now.AddDays(Utils.GetRandom(1, 15)),
-        IsPaid = false
+        IsPaid = Utils.GetRandom(0, 1) == 1
     };
 }

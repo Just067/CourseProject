@@ -1,5 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System.ComponentModel;
 
 namespace CourseProject.Models.Entities;
 
@@ -18,7 +17,7 @@ public class ServiceStationContext : DbContext
 
     public ServiceStationContext()
     {
-        Database.EnsureDeleted();
+        //Database.EnsureDeleted();
         Database.EnsureCreated();
     } // ServiceStationContext
 

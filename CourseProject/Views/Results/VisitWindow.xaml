@@ -7,6 +7,7 @@
         mc:Ignorable="d"
         Title="VisitWindow"
         SizeToContent="WidthAndHeight"
+        FontSize="16"
         WindowStartupLocation="CenterScreen"
         MinWidth="600">
     <StackPanel Orientation="Vertical" Margin="10">
@@ -36,31 +37,21 @@
               BorderBrush="Black"
               Header="Сведения о клиенте">
 
-            <StackPanel
-                Orientation="Vertical"
-                Width="200"
-                Margin="10 5 15 15">
+                <DataGrid AutoGenerateColumns="False"
+                          IsReadOnly="True"
+                          Name ="DgClients">
 
-                <Label>Фамилия клиента:</Label>
-                <TextBox Name="TxbSurnameClient"></TextBox>
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="№ п/п" Binding="{Binding Id}"/>
+                        <DataGridTextColumn Header="Фамилия" Binding="{Binding Person.Surname}"/>
+                        <DataGridTextColumn Header="Имя" Binding="{Binding Person.Name}"/>
+                        <DataGridTextColumn Header="Отчество" Binding="{Binding Person.Patronymic}"/>
+                        <DataGridTextColumn Header="Дата рождения" Binding="{Binding BirthDate, StringFormat={}{0:dd-MM-yyyy}}"/>
+                        <DataGridTextColumn Header="Паспорт" Binding="{Binding Passport}"/>
+                        <DataGridTextColumn Header="Адрес регистрации" Binding="{Binding Registration}"/>
+                    </DataGrid.Columns>
 
-                <Label>Имя клиента:</Label>
-                <TextBox Name="TxbNameClient"></TextBox>
-
-                <Label>Отчество клиента:</Label>
-                <TextBox Name="TxbPatronymicClient"></TextBox>
-
-
-                <Label>Паспорт:</Label>
-                <TextBox Name ="TxbPassport"/>
-
-                <Label>Прописка:</Label>
-                <TextBox Name ="TxbRegistration"/>
-
-                <Label>Дата рождения:</Label>
-                <DatePicker Name="DtpBirthDate"/>
-
-                </StackPanel>
+                </DataGrid>
             </GroupBox>
 
             <GroupBox 
@@ -71,33 +62,22 @@
                 BorderBrush="Black"
                 Header="Сведения о машине">
 
-                <StackPanel
-                    Orientation="Vertical"
-                    Width="200"
-                    Margin="10 5 15 15">
+                <DataGrid AutoGenerateColumns="False"
+                          IsReadOnly="True"
+                          Name ="DgCars">
 
-                    <Label>Фамилия владельца:</Label>
-                    <TextBox Name="TxbSurnameOwner"></TextBox>
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="№ п/п" Binding="{Binding Id}"/>
+                        <DataGridTextColumn Header="Фамилия владельца" Binding="{Binding Owner.Surname}"/>
+                        <DataGridTextColumn Header="Имя владельца" Binding="{Binding Owner.Name}"/>
+                        <DataGridTextColumn Header="Отчество владельца" Binding="{Binding Owner.Patronymic}"/>
+                        <DataGridTextColumn Header="Марка" Binding="{Binding Brand.Name}"/>
+                        <DataGridTextColumn Header="Цвет" Binding="{Binding Color.Name}"/>
+                        <DataGridTextColumn Header="Государственный номер" Binding="{Binding StateNumber}"/>
+                        <DataGridTextColumn Header="Год выпуска" Binding="{Binding ReleaseYear}"/>
+                    </DataGrid.Columns>
 
-                    <Label>Имя владельца:</Label>
-                    <TextBox Name="TxbNameOwner"></TextBox>
-
-                    <Label>Отчество владельца:</Label>
-                    <TextBox Name="TxbPatronymicOwner"></TextBox>
-
-                    <Label>Марка:</Label>
-                    <ComboBox Name ="CxbBrand"/>
-
-                    <Label>Цвет:</Label>
-                    <ComboBox Name ="CxbColor"/>
-
-                    <Label>Год выпуска:</Label>
-                    <TextBox Name="TxbReleaseYear"/>
-
-                    <Label>Государственный номер:</Label>
-                    <TextBox Name="TxbStateNumber"/>
-
-                </StackPanel>
+                </DataGrid>
             </GroupBox>
 
             <GroupBox 
@@ -106,12 +86,8 @@
                 Margin="5" 
                 Padding="5"
                 BorderBrush="Black"
-                Header="Выберите работника">
+                Header="Сведения о работнике">
 
-                <StackPanel
-                    Orientation="Vertical"
-                    Width="250"
-                    Margin="10 5 15 15">
 
                     <DataGrid AutoGenerateColumns="False"
                               IsReadOnly="True"
@@ -126,9 +102,8 @@
                             <DataGridTextColumn Header="Разряд" Binding="{Binding Category}"/>
                             <DataGridTextColumn Header="Стаж" Binding="{Binding Experience}"/>
                         </DataGrid.Columns>
-                    </DataGrid>
 
-                </StackPanel>
+                    </DataGrid>
             </GroupBox>
 
             <GroupBox 
@@ -141,11 +116,11 @@
 
                 <StackPanel
                     Orientation="Vertical"
-                    Width="200"
+                    Width="300"
                     Margin="10 5 15 15">
 
                     <Label>Неисправность:</Label>
-                    <TextBox Name="TxbDefect"></TextBox>
+                    <TextBox Name="TxbDefect" Height="30"></TextBox>
 
                     <Label>Услуга:</Label>
                     <ComboBox Name="CxbService"></ComboBox>
@@ -156,14 +131,20 @@
                     <Label>Дата выдачи авто:</Label>
                     <DatePicker Name="DtpIssue"/>
 
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                        <Label>Оплачен:</Label>
+                        <CheckBox Name="ChxIsPaid" HorizontalAlignment="Center" 
+                                  VerticalAlignment="Center"/>
+                    </StackPanel>
+
                 </StackPanel>
             </GroupBox>
 
             <!--endregion -->
         </Grid>
-        <!--<StackPanel Orientation="Horizontal" HorizontalAlignment ="Center">
-            <Button Background="LightGreen"  Content="Добавить" Name="BtnAdd" Margin="10" Height="50" Width ="200" Click="BtnAdd_Click"/>
-            <Button Background="LightCoral" Content="Закрыть" Name="BtnClose" Margin="10" Height="50" Width ="200" Click="BtnCancel_Click"/>
-        </StackPanel>-->
+        <StackPanel Orientation="Horizontal" HorizontalAlignment ="Center">
+            <Button Background="LightGreen"  Content="Добавить" Name="BtnAdd" Margin="10" Height="50" Width ="200" Command="{Binding SelectCommand}"/>
+            <Button Background="LightCoral" Content="Закрыть" Name="BtnClose" Margin="10" Height="50" Width ="200" Command="{Binding CancelCommand}"/>
+        </StackPanel>
     </StackPanel>
 </Window>

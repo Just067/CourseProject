@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using CourseProject.Models.Entities;
 
 namespace CourseProject.Views.Results;
 
@@ -7,9 +8,11 @@ namespace CourseProject.Views.Results;
 /// </summary>
 public partial class AddBrandWindow : Window
 {
-    public AddBrandWindow()
+    public AddBrandWindow(List<Brand> brands)
     {
         InitializeComponent();
+
+        LvBrands.ItemsSource = brands;
 
         TbxBrand.Focus();
 
@@ -20,6 +23,12 @@ public partial class AddBrandWindow : Window
 
     private void BtnSelect_Click(object sender, EventArgs e)
     {
+        if (string.IsNullOrWhiteSpace(Brand))
+        {
+            MessageBox.Show("Марка не указана!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+            return;
+        }
+
         DialogResult = true;
         Close();
 

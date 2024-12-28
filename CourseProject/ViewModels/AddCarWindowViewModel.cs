@@ -1,5 +1,4 @@
-﻿using System.Windows;
-using CourseProject.Controllers;
+﻿using CourseProject.Controllers;
 using CourseProject.Infrastructure;
 using CourseProject.Views.Results;
 
@@ -40,7 +39,7 @@ public partial class AddCarWindowViewModel
 
         BrandCommand = new(BrandExec);
 
-        SelectCommand = new(SelectExec);
+        SelectCommand = new(async void (o) => await SelectExec(o));
 
         CancelCommand = new(CancelExec);
 

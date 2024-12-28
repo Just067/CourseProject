@@ -10,10 +10,18 @@ namespace CourseProject.Views.Results;
 /// </summary>
 public partial class VisitWindow : Window
 {
-    public VisitWindow(List<Employee> employees)
+    private ServiceStationController _serviceStationController = new();
+
+    public VisitWindow(List<Employee> employees, List<Car> cars, List<Client> clients)
     {
         InitializeComponent();
 
-        DgEmployees.ItemsSource = employees;
+        (DgEmployees.ItemsSource, DgCars.ItemsSource, DgClients.ItemsSource, CxbService.ItemsSource) = 
+            (employees, cars, clients, _serviceStationController.GetAllServices().Select(service => service.Name).ToList());
+
+        DgEmployees.SelectedIndex = DgClients.SelectedIndex = DgCars.SelectedIndex = CxbService.SelectedIndex = 0;
+
+        DataContext = new AddVisitWindowViewModel(this, _serviceStationController);
     }
+
 }

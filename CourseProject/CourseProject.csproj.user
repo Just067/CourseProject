@@ -7,16 +7,37 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="Views\ChoiceWindows\StateNumberChoiceWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\Results\AddBrandWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Views\Results\AddCarWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\Results\AddClientWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\Results\AddColorWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\Results\AddEmployeeWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Results\AddSpecializationWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\Results\BrandsWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Results\CarsWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Results\ClientsWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Results\DefectsWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Views\Results\EditCarWindow.xaml.cs">
@@ -28,7 +49,19 @@
     <Compile Update="Views\Results\ColorsWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\Results\EditEmployeeWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\Results\PeopleWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Results\Query04Window.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Results\Query07Window.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Results\SpecializationsWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Views\Results\VisitWindow.xaml.cs">
@@ -39,6 +72,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="Views\ChoiceWindows\StateNumberChoiceWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Views\MainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
@@ -48,10 +84,28 @@
     <Page Update="Views\Results\AddCarWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Views\Results\AddClientWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Views\Results\AddColorWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Views\Results\AddEmployeeWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Results\AddSpecializationWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Views\Results\BrandsWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Results\CarsWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Results\ClientsWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Results\DefectsWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\Results\EditCarWindow.xaml">
@@ -63,7 +117,19 @@
     <Page Update="Views\Results\ColorsWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Views\Results\EditEmployeeWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Views\Results\PeopleWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Results\Query04Window.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Results\Query07Window.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Results\SpecializationsWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\Results\VisitWindow.xaml">

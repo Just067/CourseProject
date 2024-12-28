@@ -36,7 +36,7 @@ public static partial class Factory
         return passport;
     }
 
-    private static string GetRandomPersonImage() =>
+    public static string GetRandomPersonImage() =>
         $"man_{Utils.GetRandom(1, 14):D3}.jpg";
 
     private static readonly List<string> Passports = [
