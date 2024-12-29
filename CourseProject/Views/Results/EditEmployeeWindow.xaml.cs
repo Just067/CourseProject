@@ -1,7 +1,6 @@
 ﻿using CourseProject.Controllers;
 using CourseProject.Models.Entities;
 using System.Windows;
-using CourseProject.Infrastructure;
 
 namespace CourseProject.Views.Results;
 
@@ -40,6 +39,7 @@ public partial class EditEmployeeWindow : Window
 
     private void BtnSelect_Click(object sender, RoutedEventArgs e)
     {
+
         _originalEmployee.Category = _employeeCopy.Category;
         _originalEmployee.Experience = _employeeCopy.Experience;
 

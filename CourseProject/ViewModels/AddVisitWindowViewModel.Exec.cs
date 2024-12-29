@@ -54,7 +54,7 @@ public partial class AddVisitWindowViewModel
             ServiceId = serviceId,
             DateOfApplication = HostWindow.DtpApplication.DisplayDate,
             DateOfIssue = HostWindow.DtpIssue.DisplayDate,
-            IsPaid = HostWindow.ChxIsPaid.IsEnabled
+            IsPaid = HostWindow.ChxIsPaid.IsChecked ?? false
         };
 
         // Добавление посещения

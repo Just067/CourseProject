@@ -108,7 +108,22 @@
                             </TextBlock>
                             <DataGrid AutoGenerateColumns="False"
                                       IsReadOnly="True"
-                                      Name ="DgEmployees">
+                                      Name ="DgEmployees"
+                                      AlternatingRowBackground="LightGreen"
+                                      RowBackground="White"
+                                      GridLinesVisibility="All"
+                                      BorderBrush="DarkGreen"
+                                      BorderThickness="1"
+                                      AlternationCount="2">
+
+                                <DataGrid.ColumnHeaderStyle>
+                                    <Style TargetType="DataGridColumnHeader">
+                                        <Setter Property="Background" Value="DeepSkyBlue"/>
+                                        <Setter Property="Foreground" Value="Black"/>
+                                        <Setter Property="BorderBrush" Value="DarkBlue"/>
+                                        <Setter Property="BorderThickness" Value="1"/>
+                                    </Style>
+                                </DataGrid.ColumnHeaderStyle>
 
 
                                 <DataGrid.ContextMenu>
