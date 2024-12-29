@@ -52,8 +52,8 @@ public partial class AddVisitWindowViewModel
             EmployeeId = employeeId,
             DefectId = defect.Id,
             ServiceId = serviceId,
-            DateOfApplication = HostWindow.DtpApplication.DisplayDate,
-            DateOfIssue = HostWindow.DtpIssue.DisplayDate,
+            DateOfApplication = HostWindow.DtpApplication.SelectedDate!.Value,
+            DateOfIssue = HostWindow.DtpIssue.SelectedDate!.Value,
             IsPaid = HostWindow.ChxIsPaid.IsChecked ?? false
         };
 

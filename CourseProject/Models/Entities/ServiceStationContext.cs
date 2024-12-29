@@ -17,7 +17,7 @@ public class ServiceStationContext : DbContext
 
     public ServiceStationContext()
     {
-        //Database.EnsureDeleted();
+        Database.EnsureDeleted();
         Database.EnsureCreated();
     } // ServiceStationContext
 

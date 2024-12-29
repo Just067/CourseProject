@@ -438,7 +438,7 @@
                             Command="{Binding SaveMonthReport}">
                         <StackPanel Orientation="Horizontal">
                             <Image Source="/Assets/icons8-document-32.png"/>
-                            <TextBlock Text="Месячный отсчет" Margin="5 0" VerticalAlignment="Center"/>
+                            <TextBlock Text="Месячный отчет" Margin="5 0" VerticalAlignment="Center"/>
                         </StackPanel>
                     </Button>
 
