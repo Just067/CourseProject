@@ -1,11 +1,15 @@
-﻿using CourseProject.Models.Entities.Configurations;
+﻿using System.ComponentModel;
+using System.Runtime.CompilerServices;
+using CourseProject.Models.Entities.Configurations;
 using Microsoft.EntityFrameworkCore;
 
 namespace CourseProject.Models.Entities;
 
 [EntityTypeConfiguration(typeof(VisitConfiguration))]
-public class Visit
+public class Visit:INotifyPropertyChanged
 {
+    private bool _isPaid;
+
     // Первичный ключ таблицы Visits
     public int Id { get; set; }
 
@@ -36,5 +40,21 @@ public class Visit
     public DateTime DateOfIssue { get; set; }
 
     // Статус оплаты посещения
-    public bool IsPaid { get; set; }
+    public bool IsPaid
+    {
+        get => _isPaid;
+        set
+        {
+            if (value == _isPaid) return;
+            _isPaid = value;
+            OnPropertyChanged();
+        }
+    }
+
+    public event PropertyChangedEventHandler? PropertyChanged;
+    public void OnPropertyChanged([CallerMemberName] string prop = "")
+    {
+        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
+    }
+
 }

@@ -253,7 +253,7 @@ public class ServiceStationController(ServiceStationContext db)
             Filter = "Текстовые файлы (*.txt)|*.txt",
             DefaultExt = ".txt",
             Title = "Сохранить справку о количестве автомобилей в ремонте",
-            FileName = $"Справка_{DateTime.Now:yyyy_MM}.txt"
+            FileName = $"Количество автомобилей в ремонте_{DateTime.Now:yyyy_MM}.txt"
         };
 
         if (saveFileDialog.ShowDialog() == true)
@@ -270,7 +270,7 @@ public class ServiceStationController(ServiceStationContext db)
             Filter = "Текстовые файлы (*.txt)|*.txt",
             DefaultExt = ".txt",
             Title = "Сохранить справку о количестве незанятых рабочих",
-            FileName = $"Справка_{DateTime.Now:yyyy_MM}.txt"
+            FileName = $"Количество незанятых работников_{DateTime.Now:yyyy_MM}.txt"
         };
 
         if (saveFileDialog.ShowDialog() == true)
@@ -368,6 +368,13 @@ public class ServiceStationController(ServiceStationContext db)
     {
        db.Cars.Update(car);
        db.SaveChanges();
+    }
+
+    // изменение посещения
+    public void UpdateVisit(Visit visit)
+    {
+        db.Visits.Update(visit);
+        db.SaveChanges();
     }
 
     // удалить работника

@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
 using CourseProject.Controllers;
 using CourseProject.Models.Entities;
@@ -25,6 +26,14 @@ public partial class EmployeesWindow : Window
         if (DataContext is EmployeesWindowViewModel viewModel)
         {
             viewModel.EditEmployeeCommand.Execute(this);
+        }
+    }
+
+    private void ToggleButton_OnChecked(object sender, RoutedEventArgs e)
+    {
+        if (sender is CheckBox { DataContext: Employee employee })
+        {
+            _serviceStationController.UpdateEmployee(employee);
         }
     }
 }

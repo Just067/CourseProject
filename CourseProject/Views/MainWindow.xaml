@@ -22,7 +22,7 @@
 
         </Grid.RowDefinitions>
 
-        <Menu Grid.Row ="0" FontFamily="Verdana">
+        <Menu Grid.Row ="0" FontSize="16">
             <MenuItem Header="_Файл">
                 <MenuItem Header="Вы_ход"
                           Command="{Binding ExitCommand}">
@@ -32,30 +32,37 @@
             <MenuItem Header="_Запросы">
 
                 <MenuItem Header="Запрос 1"
+                          ToolTip="Фамилия, имя, отчество и адрес владельца автомобиля с данным номером государственной регистрации"
                           Command="{Binding Query01Command}">
                 </MenuItem>
 
                 <MenuItem Header="Запрос 2"
+                          ToolTip="Марка и год выпуска автомобиля данного владельца"
                           Command="{Binding Query02Command}">
                 </MenuItem>
 
                 <MenuItem Header="Запрос 3"
+                          ToolTip="Перечень устраненных неисправностей в автомобиле данного владельца"
                           Command="{Binding Query03Command}">
                 </MenuItem>
 
                 <MenuItem Header="Запрос 4"
+                          ToolTip="Фамилия, имя, отчество работника станции, устранявшего данную неисправность в автомобиле данного клиента, и время ее устранения"
                           Command="{Binding Query04Command}">
                 </MenuItem>
 
                 <MenuItem Header="Запрос 5"
+                          ToolTip="Фамилия, имя, отчество клиентов, сдавших в ремонт автомобили с указанным типом неисправности"
                           Command="{Binding Query05Command}">
                 </MenuItem>
 
                 <MenuItem Header="Запрос 6"
+                          ToolTip="Самая распространенная неисправность в автомобилях указанной марки"
                           Command="{Binding Query06Command}">
                 </MenuItem>
 
                 <MenuItem Header="Запрос 7"
+                          ToolTip="Количество рабочих каждой специальности на станции"
                           Command="{Binding Query07Command}">
                 </MenuItem>
 
@@ -283,8 +290,8 @@
                                 Оказанные услуги
                             </TextBlock>
                             <DataGrid AutoGenerateColumns="False"
-                           IsReadOnly="True"
-                           Name ="DgVisits">
+                                      IsReadOnly="True"
+                                      Name ="DgVisits">
 
                                 <DataGrid.Columns>
                                     <DataGridTextColumn Header="№ п/п" Binding="{Binding Id}"/>
@@ -299,9 +306,10 @@
                                     <DataGridTemplateColumn Header="Оплачен">
                                         <DataGridTemplateColumn.CellTemplate>
                                             <DataTemplate>
-                                                <CheckBox IsChecked="{Binding IsPaid}"
+                                                <CheckBox IsChecked="{Binding IsPaid, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                                                           VerticalAlignment="Center"
-                                                          IsEnabled="False"
+                                                          Checked="ToggleButton_OnChecked"
+                                                          Unchecked="ToggleButton_OnChecked"
                                                           HorizontalAlignment="Center"/>
                                             </DataTemplate>
                                         </DataGridTemplateColumn.CellTemplate>

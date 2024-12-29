@@ -1,11 +1,15 @@
-﻿using CourseProject.Models.Entities.Configurations;
+﻿using System.ComponentModel;
+using System.Runtime.CompilerServices;
+using CourseProject.Models.Entities.Configurations;
 using Microsoft.EntityFrameworkCore;
 
 namespace CourseProject.Models.Entities;
 
 [EntityTypeConfiguration(typeof(EmployeeConfiguration))]
-public class Employee
+public class Employee:INotifyPropertyChanged
 {
+    private bool _isEmployed;
+
     // Первичный ключ таблицы Employees
     public int Id { get; set; }
 
@@ -31,8 +35,23 @@ public class Employee
     public string PathPhoto { get; set; }
 
     // Статус занятости сотрудника
-    public bool IsEmployed { get; set; }
+    public bool IsEmployed
+    {
+        get => _isEmployed;
+        set
+        {
+            if (value == _isEmployed) return;
+            _isEmployed = value;
+            OnPropertyChanged();
+        }
+    }
 
     // Навигационное свойство: список посещений станции техобслуживания, связанных с этим сотрудником
     public virtual List<Visit> Visits { get; set; } = [];
+
+    public event PropertyChangedEventHandler? PropertyChanged;
+    public void OnPropertyChanged([CallerMemberName] string prop = "")
+    {
+        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
+    }
 }

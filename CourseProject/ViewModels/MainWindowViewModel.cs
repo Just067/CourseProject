@@ -1,6 +1,8 @@
-﻿using System.Windows;
+﻿using System.Collections.ObjectModel;
+using System.Windows;
 using CourseProject.Controllers;
 using CourseProject.Infrastructure;
+using CourseProject.Models.Entities;
 using CourseProject.Views;
 using CourseProject.Views.Results;
 

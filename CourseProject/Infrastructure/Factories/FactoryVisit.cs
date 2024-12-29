@@ -18,7 +18,7 @@ public static partial class Factory
         DefectId = defectId,
         ServiceId = serviceId,
         EmployeeId = employeeId,
-        DateOfApplication = DateTime.Now,
+        DateOfApplication = DateTime.Now.AddDays(-Utils.GetRandom(0, 15)),
         DateOfIssue = DateTime.Now.AddDays(Utils.GetRandom(1, 15)),
         IsPaid = Utils.GetRandom(0, 1) == 1
     };

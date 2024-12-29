@@ -1,6 +1,8 @@
 ﻿using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
 using CourseProject.Controllers;
+using CourseProject.Models.Entities;
 using CourseProject.ViewModels;
 
 namespace CourseProject.Views;
@@ -33,6 +35,14 @@ public partial class MainWindow : Window
         if (DataContext is MainWindowViewModel viewModel)
         {
             viewModel.EditCarCommand.Execute(this);
+        }
+    }
+
+    private void ToggleButton_OnChecked(object sender, RoutedEventArgs e)
+    {
+        if (sender is CheckBox { DataContext: Visit visit })
+        {
+            _serviceStationController.UpdateVisit(visit);
         }
     }
 }

@@ -142,9 +142,10 @@
                                     <DataGridTemplateColumn Header="Занят">
                                         <DataGridTemplateColumn.CellTemplate>
                                             <DataTemplate>
-                                                <CheckBox IsChecked="{Binding IsEmployed}"
+                                                <CheckBox IsChecked="{Binding IsEmployed, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                                                           VerticalAlignment="Center"
-                                                          IsEnabled="False"
+                                                          Checked="ToggleButton_OnChecked"
+                                                          Unchecked="ToggleButton_OnChecked"
                                                           HorizontalAlignment="Center"/>
                                             </DataTemplate>
                                         </DataGridTemplateColumn.CellTemplate>
